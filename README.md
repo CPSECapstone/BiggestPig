@@ -3,4 +3,4 @@
 - Sarah Samora
 - Grant Matejka
 - Evan Rozhon
-- Justin Evan
+- Justin Evans
