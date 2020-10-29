@@ -9,14 +9,12 @@
     "@testing-library/user-event": "^7.2.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
-    "react-scripts": "3.4.4"
+    "react": "latest",
+    "react-dom": "latest"
   },
-  "devDependencies": {import TextField from '@material-ui/core/TextField';
-
+  "devDependencies": {
     "react-scripts": "latest"
-  },import TextField from '@material-ui/core/TextField';
+  },
 
   "description": "https://github.com/mui-org/material-ui/blob/master/docs/src/pages/components/text-fields/FormPropsTextFields.js",
   "dependencies": {
