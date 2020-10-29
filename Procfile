@@ -1,1 +1,1 @@
-web: yarn dev index.js
+web: yarn dev cloudhaven/client/src/index.js
