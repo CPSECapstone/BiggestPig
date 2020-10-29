@@ -4,7 +4,6 @@ import FormGenerator from './form';
 import Button from '@material-ui/core/Button';
 
 import './site.css';
-import ButtonGenerator from "./button";
 
 let dummyApi = [{"name":"hello", "default":"hello again"}, {"name":"bad", "default":"cant change this"}];
 
