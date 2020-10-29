@@ -1,0 +1,12 @@
+
+package-lock.json
+package.json
+README.md
+
+.prettierrc.json 
+
+**/package*.json
+**/**/package*.json
+
+**/README.md
+**/**/README.md

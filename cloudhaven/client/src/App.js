@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import './site.css';
+import "./site.css";
 
 class App extends Component {
   state = {
-    response: '',
-    post: '',
-    responseToPost: '',
+    response: "",
+    post: "",
+    responseToPost: "",
   };
 
   componentDidMount() {
     this.callApi()
-      .then(resp => this.setState({ response: resp.express }))
-      .catch(err => console.log(err));
+      .then((resp) => this.setState({ response: resp.express }))
+      .catch((err) => console.log(err));
   }
 
   callApi = async () => {
-    const response = await fetch('/api/hello');
+    const response = await fetch("/api/hello");
     const body = await response.json();
     if (response.status !== 200) {
       throw Error(body.message);
@@ -25,12 +25,12 @@ class App extends Component {
     return body;
   };
 
-  handleSubmit = async e => {
+  handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('/api/hello', {
-      method: 'POST',
+    const response = await fetch("/api/hello", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ post: this.state.post }),
     });
@@ -41,20 +41,18 @@ class App extends Component {
 
   render() {
     return (
-      <div className='centered'>
-        <p>
-          Welcome to CloudHaven
-        </p>
+      <div className="centered">
+        <p>Welcome to CloudHaven</p>
         <p>{this.state.response}</p>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor='FormInput'>
+          <label htmlFor="FormInput">
             <strong>Post to Server: </strong>
           </label>
           <input
-            id='FormInput'
+            id="FormInput"
             type="text"
             value={this.state.post}
-            onChange={e => this.setState({ post: e.target.value })}
+            onChange={(e) => this.setState({ post: e.target.value })}
           />
           <button type="submit">Submit</button>
         </form>

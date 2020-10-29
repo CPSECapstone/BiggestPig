@@ -6,14 +6,20 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "babel-eslint": "^10.1.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
-    "react-scripts": "3.4.4",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4"
+    "react-scripts": "3.4.4"
   },
   "devDependencies": {
-    "concurrently": "^4.0.1"
+    "concurrently": "^4.0.1",
+    "eslint-config-developit": "^1.2.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-react": "^7.21.5",
+    "prettier": "2.1.2"
   },
   "scripts": {
     "update": "npm install && cd client && npm install",
@@ -23,7 +29,9 @@
     "server": "nodemon server/server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "start": "node server/server.js",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "stylecheck": "eslint --ignore-pattern 'node_modules' '**/*.{js,jsx}'",
+    "fixstyle": "eslint '**/*.{js,jsx}' --ignore-pattern node_modules --fix"
   },
   "proxy": "http://localhost:5000/",
   "eslintConfig": {
