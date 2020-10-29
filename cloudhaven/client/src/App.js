@@ -1,8 +1,12 @@
 import React, { useEffect, useState, Component } from 'react';
 import { render } from 'react-dom';
+import FormGenerator from './form';
 import Button from '@material-ui/core/Button';
 
 import './site.css';
+import ButtonGenerator from "./button";
+
+let dummyApi = [{"name":"hello", "default":"hello again"}, {"name":"bad", "default":"cant change this"}];
 
 export default function App() {
   const [response, setResponse] = useState('');
@@ -38,7 +42,6 @@ export default function App() {
 
     setResponseToPost(body);
   };
-
     return (
         <div className='centered'>
           <p>
@@ -57,6 +60,7 @@ export default function App() {
             />
             <Button color="primary" type="submit">Submit</Button>
           </form>
+          <FormGenerator formFields={dummyApi}/>
           <p>{responseToPost}</p>
         </div>
     );
