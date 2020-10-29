@@ -3,26 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "react": "latest",
-    "react-dom": "latest"
-  },
-  "devDependencies": {
-    "react-scripts": "latest"
-  },
-
-  "description": "https://github.com/mui-org/material-ui/blob/master/docs/src/pages/components/text-fields/FormPropsTextFields.js",
-  "dependencies": {
     "react-dom": "latest",
     "react": "latest",
     "@material-ui/core": "latest",
+    "@material-ui/icons": "latest",
     "concurrently": "latest"
   },
+  "devDependencies": {
+    "@material-ui/icons": "^4.9.1",
+    "react-scripts": "latest"
+  },
+  "description": "https://github.com/mui-org/material-ui/blob/master/docs/src/pages/components/text-fields/FormPropsTextFields.js",
   "scripts": {
     "update": "npm install && cd client && npm install",
     "build": "react-scripts build",
