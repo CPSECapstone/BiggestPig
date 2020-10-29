@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Component } from 'react';
+import { render } from 'react-dom';
 import Button from '@material-ui/core/Button';
 
 import './site.css';
@@ -39,24 +40,24 @@ export default function App() {
   };
 
     return (
-      <div className='centered'>
-        <p>
-          Welcome to CloudHaven
-        </p>
-        <p>{response}</p>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor='FormInput'>
-            <strong>Post to Server: </strong>
-          </label>
-          <input
-            id='FormInput'
-            type="text"
-            value={post}
-            onChange={e => setPost(e.target.value)}
-          />
-          <button type="submit">Submit</button>
-        </form>
-        <p>{responseToPost}</p>
-      </div>
+        <div className='centered'>
+          <p>
+            Welcome to CloudHaven
+          </p>
+          <p>{response}</p>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor='FormInput'>
+              <strong>Post to Server: </strong>
+            </label>
+            <input
+                id='FormInput'
+                type="text"
+                value={post}
+                onChange={e => setPost(e.target.value)}
+            />
+            <Button color="primary" type="submit">Submit</Button>
+          </form>
+          <p>{responseToPost}</p>
+        </div>
     );
 }
