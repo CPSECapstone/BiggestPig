@@ -1,21 +1,20 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
+import Button from '@material-ui/core/Button';
 
 import './site.css';
 
-class App extends Component {
-  state = {
-    response: '',
-    post: '',
-    responseToPost: '',
-  };
+export default function App() {
+  const [response, setResponse] = useState('');
+  const [post, setPost] = useState('');
+  const [responseToPost, setResponseToPost] = useState('');
 
-  componentDidMount() {
-    this.callApi()
-      .then(resp => this.setState({ response: resp.express }))
+  useEffect(() => {
+    callApi()
+      .then(resp => setResponse(resp.express))
       .catch(err => console.log(err));
-  }
+  })
 
-  callApi = async () => {
+  const callApi = async () => {
     const response = await fetch('/api/hello');
     const body = await response.json();
     if (response.status !== 200) {
@@ -25,43 +24,39 @@ class App extends Component {
     return body;
   };
 
-  handleSubmit = async e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const response = await fetch('/api/hello', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ post: this.state.post }),
+      body: JSON.stringify({ post: post }),
     });
     const body = await response.text();
 
-    this.setState({ responseToPost: body });
+    setResponseToPost(body);
   };
 
-  render() {
     return (
       <div className='centered'>
         <p>
           Welcome to CloudHaven
         </p>
-        <p>{this.state.response}</p>
-        <form onSubmit={this.handleSubmit}>
+        <p>{response}</p>
+        <form onSubmit={handleSubmit}>
           <label htmlFor='FormInput'>
             <strong>Post to Server: </strong>
           </label>
           <input
             id='FormInput'
             type="text"
-            value={this.state.post}
-            onChange={e => this.setState({ post: e.target.value })}
+            value={post}
+            onChange={e => setPost(e.target.value)}
           />
           <button type="submit">Submit</button>
         </form>
-        <p>{this.state.responseToPost}</p>
+        <p>{responseToPost}</p>
       </div>
     );
-  }
 }
-
-export default App;
