@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Component } from 'react';
+import { render } from 'react-dom';
+import FormGenerator from './form';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-
+import Button from "@material-ui/core/Button";
 import './site.css';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Input from "@material-ui/core/Input";
+
+let dummyApi = [{"name":"hello", "default":"hello again"}, {"name":"bad", "default":"cant change this"}];
 
 export default function App() {
   const [response, setResponse] = useState('');
@@ -38,10 +41,6 @@ export default function App() {
 
   const handleSubmit = async e => {
     e.preventDefault();
-
-    let nam = event.target.name;
-    let val = event.target.value;
-    this.setState({[nam]: val});
 
     const response = await fetch('/api/hello', {
       method: 'POST',
