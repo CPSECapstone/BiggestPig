@@ -2,7 +2,7 @@ import React from 'react';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import HomeIcon from '@material-ui/icons/Home';
-import {useStyles} from "./styles";
+import {useStyles} from "../styles";
 
 
 export default function Home() {

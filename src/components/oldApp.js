@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import FormGenerator from './form';
 import TextField from '@material-ui/core/TextField';
 import Button from "@material-ui/core/Button";
-import './site.css';
+import '../site.css';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Input from "@material-ui/core/Input";
 
