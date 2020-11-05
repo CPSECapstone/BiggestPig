@@ -25,7 +25,7 @@
     "client": "cd cloudhaven && cd client && yarn start",
     "server": "nodemon cloudhaven/server/server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "start": "node cloudhaven/client/src/index.js",
+    "start": "node cloudhaven/server/server.js",
     "heroku-postbuild": "cd cloudhaven && cd client && npm install && npm install --only=dev --no-shrinkwrap && react-scripts start"
   },
   "proxy": "http://localhost:5000/",
