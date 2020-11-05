@@ -2,6 +2,10 @@
   "name": "cloudhaven",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "12.x"
+  },
+  "main": "cloudhaven/client/src/index.js",
   "dependencies": {
     "react-dom": "latest",
     "react": "latest",
@@ -21,7 +25,7 @@
     "client": "cd client && yarn start",
     "server": "nodemon server/server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "start": "node server/server.js",
+    "start": "node cloudhaven/client/src/index.js",
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "proxy": "http://localhost:5000/",
