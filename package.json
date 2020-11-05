@@ -21,12 +21,12 @@
   "scripts": {
     "update": "npm install && cd client && npm install",
     "build": "react-scripts build",
-    "test": "cd client && react-scripts test",
-    "client": "cd client && yarn start",
-    "server": "nodemon server/server.js",
+    "test": "cd cloudhaven && cd client && react-scripts test",
+    "client": "cd cloudhaven && cd client && yarn start",
+    "server": "nodemon cloudhaven/server/server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "start": "node cloudhaven/client/src/index.js",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "cd cloudhaven && cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "proxy": "http://localhost:5000/",
   "eslintConfig": {
