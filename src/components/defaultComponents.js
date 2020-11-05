@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useStyles } from "./styles";
+import { useStyles } from "../styles";
 import { AppBar, Button, IconButton, Toolbar, Typography } from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
 
