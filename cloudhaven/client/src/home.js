@@ -1,22 +1,9 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import FolderIcon from '@material-ui/icons/Folder';
 import HomeIcon from '@material-ui/icons/Home';
+import {useStyles} from "./styles";
 
-
-const useStyles = makeStyles({
-    root: {
-        width: 500,
-    },
-    navBar: {
-        width: '100%',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
-});
 
 export default function Home() {
     const classes = useStyles();
