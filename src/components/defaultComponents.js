@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {secondaryFontColor, useStyles} from "./styles";
+import {secondaryFontColor, useStyles} from "../styles";
 import {Button, IconButton} from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
 

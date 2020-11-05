@@ -1,9 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Provider } from "./providers.js";
-import { Header } from "./defaultComponents";
-import Home from "./home";
-import FormPropsTextFields from "./demo";
+
+import { Provider } from "./components/providers.js";
+import { Header } from "./components/defaultComponents";
+
+import Home from "./pages/home";
+import FormPropsTextFields from "./pages/demo";
 // import ProfilePage from "./pages/Profile";
 // import EditProfilePage from "./pages/EditProfile";
 
