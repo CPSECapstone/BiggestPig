@@ -1,29 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {secondaryFontColor, useStyles} from "./styles";
-import {Button, IconButton} from "@material-ui/core";
+import { secondaryFontColor, useStyles } from "./styles";
+import { AppBar, Button, IconButton, Toolbar, Typography } from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
 
 export const Header = () => {
     const classes = useStyles();
     return (
-        <header>
-            <div className={classes.navBar}>
-                <Link to="/">
-                    <IconButton >
-                        <HomeIcon className={classes.navBar} />
-                    </IconButton >
-                </Link>
-                <h1>
+        <AppBar position="static">
+            <Toolbar className={classes.navBar}>
+                <IconButton component={ Link } to="/" edge="start" color="inherit" aria-label="Home">
+                    <HomeIcon />
+                </IconButton >
+                <Typography variant="h5" className={classes.title}>
                     Cloudhaven
-                </h1>
-                <Link to="/demo">
-                    <Button variant="contained" color="primary">
-                        Profile
-                    </Button>
-                </Link>
-            </div>
-        </header>
+                </Typography>
+                <Button component={ Link } to="/demo" color="inherit">Login</Button>
+            </Toolbar>
+        </AppBar>
     );
 };
 
