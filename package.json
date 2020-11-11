@@ -7,13 +7,15 @@
   },
   "main": "components/index.js",
   "dependencies": {
-    "react-dom": "latest",
-    "react-router-dom": "latest",
-    "react": "latest",
     "@material-ui/core": "latest",
     "@material-ui/icons": "latest",
+    "axios": "^0.21.0",
     "concurrently": "latest",
     "nodemon": "latest",
+    "pg-promise": "^10.7.3",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-router-dom": "latest",
     "react-scripts": "latest"
   },
   "type": "module",
