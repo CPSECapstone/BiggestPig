@@ -9,13 +9,14 @@ export const Header = () => {
     return (
         <AppBar position="static">
             <Toolbar className={classes.navBar}>
-                <IconButton component={ Link } to="/" edge="start" color="inherit" aria-label="Home">
+                <IconButton component={ Link } to="/home" edge="start" color="inherit" aria-label="Home">
                     <HomeIcon />
                 </IconButton >
                 <Typography variant="h5" className={classes.title}>
                     Cloudhaven
                 </Typography>
-                <Button component={ Link } to="/demo" color="inherit">Login</Button>
+                <Button component={Link} to="/login" color="inherit">Login</Button>
+                <Button component={Link} to="/demo" color="inherit">demo</Button>
             </Toolbar>
         </AppBar>
     );
