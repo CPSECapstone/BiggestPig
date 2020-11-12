@@ -1,5 +1,6 @@
 import React, {} from 'react';
-import Button from '@material-ui/core/Button';
+
+import TextField from '@material-ui/core/TextField';
 
 // THIS FUNCTION TAKES IN SOME STUFF (from an API that we defined)
 // AND RETURNS IT AS A FORM IN HTML
@@ -21,25 +22,24 @@ export default function FormGenerator(props) {
 
     function renderDetails(information) {
         return (
-            <label>{information.label}
-            <input
-                id="FormInput"
-                type="text"
-                value={information.validation}
+            <div>
+            <TextField 
+                id={"filled-basic"}
+                label={information.label}
+                fullWidth
+                variant="filled"
+                defaultValue={information.validation}
             />
-            </label>
+            <p></p>
+            </div>
         )
     }
 
     function renderItems(fieldVar) {
-        console.log("fieldVar")
-        console.log(fieldVar);
         const f = [];
         for (let i in fieldVar) {
             f.push(fieldVar.[i])
         }
-        console.log("f")
-        console.log(f)
 
         const mapped = f.map((information) => (renderDetails(information)));
 
