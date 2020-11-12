@@ -61,17 +61,18 @@ export default function Login() {
          email,
          hashedPass
       }).then(result => {
-
          if (result.status === 200) {
-            setAuth(result.data.valid);
+            // Should encrypt so we can decrypt but a hash will work for now
+            const uidHash = crypto.createHash('sha256');
+            uidHash.update(result.data.uid);
+            setAuth(uidHash.digest('hex'));
+
             setLoggedIn(true);
-            
          } else {
             setErrorMsg('Incorrect Email or Password');
          }
-
       }).catch(e => {
-         setErrorMsg('Bad API call');
+         setErrorMsg('Incorrect Email or Password');
       });
    }
 
