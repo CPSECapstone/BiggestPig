@@ -9,19 +9,47 @@ import Button from '@material-ui/core/Button';
 // definitely need to make it pretty
 // definitely need to make it do things
 export default function FormGenerator(props) {
+    let formId = props.formID;
+    let childrenArray = [];
+    for (let i in props) {
+        if (i.startsWith("column")) {
+            childrenArray.push(props.[i].children);
+        }
+    }
+    console.log("childrenfound");
+    console.log(childrenArray);
+
+    function renderDetails(information) {
+        return (
+            <label>{information.label}
+            <input
+                id="FormInput"
+                type="text"
+                value={information.validation}
+            />
+            </label>
+        )
+    }
+
+    function renderItems(fieldVar) {
+        console.log("fieldVar")
+        console.log(fieldVar);
+        const f = [];
+        for (let i in fieldVar) {
+            f.push(fieldVar.[i])
+        }
+        console.log("f")
+        console.log(f)
+
+        const mapped = f.map((information) => (renderDetails(information)));
+
+        return (mapped);
+    }
+
     return (
         <div className="centered">
-            <form>
-                {props.formFields.map((item, index) => (
-                    <label>
-                        {item.name}
-                        <input
-                            id='FormInput'
-                            type="text"
-                            value={item.default}
-                        />
-                    </label>
-                ))}
+            <form id={formId}>
+                {childrenArray.map((item) => (renderItems(item)))}
             </form>
         </div>
     );

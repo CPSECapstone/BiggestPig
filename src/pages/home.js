@@ -4,10 +4,11 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import HomeIcon from '@material-ui/icons/Home';
 import Button from "@material-ui/core/Button";
+import {parseJson} from "../biz/APIParser";
+import {testJson} from "../biz/dummyApi";
 
 import { useStyles } from "../styles";
 import { useAuth } from "../contexts/authorize.js";
-
 
 export default function Home() {
     const classes = useStyles();
@@ -45,6 +46,9 @@ export default function Home() {
                     value="login"
                 />
             </BottomNavigation>
+            <div>
+               {parseJson(testJson)}
+            </div>
         </div>
     );
 }
