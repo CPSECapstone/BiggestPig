@@ -9,6 +9,7 @@ import Login from "./pages/login";
 import FormPropsTextFields from "./pages/demo";
 
 import PrivateRoute from "./components/privateRoute.js";
+import PrivateComponent from "./components/privateComponent.js";
 
 import { AuthContext } from "./contexts/authorize.js";
 
@@ -32,7 +33,7 @@ export default function App() {
     <AuthContext.Provider value={{ auth, setAuth: updateAuth }}>
       <Router>
         <Provider>
-          <Header />
+          <PrivateComponent component={Header} />
           <Switch>
             <PrivateRoute path="/demo" component={FormPropsTextFields} />
             <PrivateRoute exact path="/" component={Home} />
