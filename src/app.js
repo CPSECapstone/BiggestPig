@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Provider } from "./components/providers.js";
 import { Header } from "./components/defaultComponents";
 
-import Home from "./pages/home";
+import Demo2 from "./pages/demo2";
 import Login from "./pages/login";
 import FormPropsTextFields from "./pages/demo";
 
@@ -36,8 +36,9 @@ export default function App() {
           <PrivateComponent component={Header} />
           <Switch>
             <PrivateRoute path="/demo" component={FormPropsTextFields} />
-            <PrivateRoute exact path="/" component={Home} />
-            <PrivateRoute path="/home" component={Home} />
+            <PrivateRoute exact path="/" component={Demo2} />
+            <PrivateRoute path="/home" component={Demo2} />
+            <PrivateRoute path="/demo2" component={Demo2} />
             <Route path="/login" component={Login} />
           </Switch>
         </Provider>

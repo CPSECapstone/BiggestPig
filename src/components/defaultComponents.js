@@ -3,20 +3,28 @@ import { Link } from "react-router-dom";
 import { useStyles } from "../styles";
 import { AppBar, Button, IconButton, Toolbar, Typography } from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
+import {useAuth} from "../contexts/authorize";
 
 export const Header = () => {
+    const { setAuth } = useAuth();
+
+    const logout = () => {
+        setAuth();
+    }
+
     const classes = useStyles();
     return (
         <AppBar position="static">
             <Toolbar className={classes.navBar}>
-                <IconButton component={ Link } to="/home" edge="start" color="inherit" aria-label="Home">
+                <IconButton component={ Link } to="/home" edge="start" color="inherit">
                     <HomeIcon />
                 </IconButton >
                 <Typography variant="h5" className={classes.title}>
                     Cloudhaven
                 </Typography>
-                <Button component={Link} to="/login" color="inherit">Login</Button>
+                <Button onClick={logout} color="inherit">Logout</Button>
                 <Button component={Link} to="/demo" color="inherit">demo</Button>
+                <Button component={Link} to="/demo2" color="inherit"> 2</Button>
             </Toolbar>
         </AppBar>
     );
