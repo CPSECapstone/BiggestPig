@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Provider } from "./components/providers.js";
-import { Header } from "./components/defaultComponents";
+import {BackLink, Header} from "./components/defaultComponents";
 
 import Home from "./pages/home";
+import Demo2 from "./pages/demo2";
 import Login from "./pages/login";
 import FormPropsTextFields from "./pages/demo";
 
@@ -27,7 +28,6 @@ export default function App() {
     }
   }
 
-
   return (
     // Pass into our context the current state of authentication with ability to update it
     <AuthContext.Provider value={{ auth, setAuth: updateAuth }}>
@@ -38,6 +38,7 @@ export default function App() {
             <PrivateRoute path="/demo" component={FormPropsTextFields} />
             <PrivateRoute exact path="/" component={Home} />
             <PrivateRoute path="/home" component={Home} />
+            <PrivateRoute path="/demo2" component={Demo2} />
             <Route path="/login" component={Login} />
           </Switch>
         </Provider>

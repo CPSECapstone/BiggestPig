@@ -1,54 +1,82 @@
-import React from 'react';
-
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import HomeIcon from '@material-ui/icons/Home';
-import Button from "@material-ui/core/Button";
-import {parseJson} from "../biz/APIParser";
-import {testJson} from "../biz/dummyApi";
-
-import { useStyles } from "../styles";
-import { useAuth } from "../contexts/authorize.js";
+import {useStyles} from "../styles";
+import React from "react";
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import {Link} from "react-router-dom";
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 export default function Home() {
     const classes = useStyles();
     const [value, setValue] = React.useState('recents');
-    const { setAuth } = useAuth();
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
-    const logout = () => {
-        setAuth();
-    }
-
     return (
-        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyItems: 'center'}}>
-            <h1>Welcome Home</h1>
-            <Button variant="contained" color="secondary" onClick={logout} style={{ alignSelf: 'center' }}>Logout</Button>
-
-            <BottomNavigation
-                value={value}
-                onChange={(event, newValue) => {
-                    setValue(newValue);
-                }}
-                showLabels
-                className={classes.navBar}
-            >
-                <BottomNavigationAction
-                    label="Home"
-                    value="Home"
-                    icon={<HomeIcon />}
-                />
-                <BottomNavigationAction
-                    label="Login"
-                    value="login"
-                />
-            </BottomNavigation>
-            <div>
-               {parseJson(testJson)}
-            </div>
+        <div className={classes.root}>
+            <Grid container spacing={5}>
+                <Grid item>
+                    <Paper className={classes.paper}>
+                        <Card className={classes.card} component={Link} to="/demo">
+                            <CardActionArea>
+                                <CardMedia
+                                    className={classes.media}
+                                    image="/static/images/cards/demo2.gif"
+                                    title="Demo 1 Logo"
+                                />
+                                <CardContent>
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        Demo 1
+                                    </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                        </Card>
+                    </Paper>
+                </Grid>
+                <Grid item>
+                    <Paper className={classes.paper}>
+                        <Card className={classes.card} component={Link} to="/demo2">
+                            <CardActionArea>
+                                <CardMedia
+                                    className={classes.media}
+                                    image="/static/images/cards/demo2.gif"
+                                    title="Demo 2 Logo"
+                                />
+                                <CardContent>
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        Demo 2
+                                    </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                        </Card>
+                    </Paper>
+                </Grid>
+                <Grid item>
+                    <Paper className={classes.paper}>
+                        <Card className={classes.card} component={Link} to="/demo">
+                            <CardActionArea>
+                                <CardMedia
+                                    className={classes.media}
+                                    image="/static/images/cards/demo2.gif"
+                                    title="Demo 2 Logo"
+                                />
+                                <CardContent>
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        Demo 1
+                                    </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                        </Card>
+                    </Paper>
+                </Grid>
+            </Grid>
         </div>
     );
 }
