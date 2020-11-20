@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useStyles } from "../styles";
 import { AppBar, Button, IconButton, Toolbar, Typography } from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import {useAuth} from "../contexts/authorize";
 
 export const Header = () => {
@@ -23,22 +24,17 @@ export const Header = () => {
                     Cloudhaven
                 </Typography>
                 <Button onClick={logout} color="inherit">Logout</Button>
-                <Button component={Link} to="/demo" color="inherit">demo</Button>
-                <Button component={Link} to="/demo2" color="inherit"> 2</Button>
             </Toolbar>
         </AppBar>
     );
 };
 
 export const BackLink = (props) => {
+    const classes = useStyles();
     return (
-        <Link
-            to="../"
-            className="inline-block mt-4 px-4 py-3 ml-4 bg-blue-400 rounded text-gray-100 font-semibold uppercase shadow-lg sm:text-sm sm:font-bold hover:bg-blue-500 active:bg-blue-600"
-            {...props}
-        >
-            &lt; Back
-        </Link>
+        <IconButton className={classes.back} component={ Link } to="../" {...props} style={{position: 'absolute', left:'10px', bottom:'10px'}}>
+            <ArrowBackIosIcon />
+        </IconButton>
     );
 };
 
