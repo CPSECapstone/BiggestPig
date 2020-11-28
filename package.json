@@ -25,6 +25,7 @@
     "update": "npm install",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "lint": "eslint src --ext .js --fix",
     "client": "yarn start",
     "server": "nodemon api/server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
@@ -46,5 +47,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "eslint-config-google": "^0.14.0"
   }
 }
