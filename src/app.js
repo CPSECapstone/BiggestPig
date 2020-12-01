@@ -1,18 +1,15 @@
 import React, {useState} from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-
 import {Provider} from './components/providers.js';
 import {Header} from './components/defaultComponents';
-
 import Home from './pages/home';
 import Demo2 from './pages/demo2';
 import Login from './pages/login';
 import FormPropsTextFields from './pages/demo';
-
 import PrivateRoute from './components/privateRoute.js';
 import PrivateComponent from './components/privateComponent.js';
-
 import {AuthContext} from './contexts/authorize.js';
+
 
 export default function App() {
   const currAuth = JSON.parse(sessionStorage.getItem('auth'));
