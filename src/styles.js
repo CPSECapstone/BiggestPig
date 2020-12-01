@@ -1,8 +1,9 @@
 import {makeStyles} from '@material-ui/core/styles';
-
+//Primary color: blue, 2nd: eggshell
 export const primaryColor = '#0066ff';
 export const secondaryFontColor = '#fdfdf8';
 
+//think css
 export const useStyles = makeStyles({
   root: {
     display: 'flex',
