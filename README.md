@@ -16,7 +16,7 @@ All client code is in the upper most directory and server side code is in the 'a
 
 ## Dependencies
 
-All CloudHaven requires is the most up to date version of Node and all other dependencies can be installed simply with 'npm install'
+All CloudHaven requires is the most up to date version of Node and all other dependencies can be installed simply with `npm install`
 
 ## Relevant Links
 
