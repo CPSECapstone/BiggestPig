@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './app';
 
-//render main paige
+// render main paige
 ReactDOM.render(
     <React.StrictMode>
       <App />

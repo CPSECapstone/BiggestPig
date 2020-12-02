@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 
 // THIS FUNCTION TAKES IN SOME STUFF (from an API that we defined)
 // AND RETURNS IT AS A FORM IN HTML
-// fields is array of objects in form 
+// fields is array of objects in form
 // {"label":"example field name", "default":"defaulttext"}
 // TODO how to make it do things given the variable
 // how much do we need it to do? does it just spit out html?
@@ -38,7 +38,7 @@ export default function formGenerator(props) {
 
   function renderItems(fieldVar) {
     const f = [];
-    if (i in fieldVar) {
+    if (fieldVar) {
       for (const i in fieldVar) {
         f.push(fieldVar.[i]);
       }
