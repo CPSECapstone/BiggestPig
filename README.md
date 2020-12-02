@@ -20,9 +20,10 @@ All CloudHaven requires is the most up to date version of Node and all other dep
 
 ## Relevant Links
 
-### CI/CD
-# TODO
+### Deployment Location
+https://cloud-haven.herokuapp.com
 
+### CI/CD
 
 ## Available Scripts
 
