@@ -71,7 +71,7 @@ const INITIAL_APP_STATE = {
       },
       stock: 0,
       description:
-                'AM4 socket, 105W Desktop processor. 7nm process, 64MB L3 Cache, 8MB L2 Cache.',
+                'AM4 socket, 105W Desktop processor. 7nm process, ...',
       imgSrc: '/img/ryzen9.png',
     },
     {
@@ -84,7 +84,7 @@ const INITIAL_APP_STATE = {
       },
       stock: 2,
       description:
-                'BLACK EDITION GAMING Video Card. 11GB GDDR6, Dual HDB Fans, RGB.',
+                'BLACK EDITION GAMING Video Card. ...',
       imgSrc: '/img/evga-2080ti.png',
     },
     {
@@ -97,7 +97,7 @@ const INITIAL_APP_STATE = {
       },
       stock: 3,
       description:
-                'DDR4 3200 Desktop Memory Model, 2x16GB, Voltage 1.35V, Timing 16-18-18-38',
+                'DDR4 3200 Desktop Memory Model,...',
       imgSrc: '/img/gskill-ram.png',
     },
     {
@@ -110,7 +110,7 @@ const INITIAL_APP_STATE = {
       },
       stock: 12,
       description:
-                'BE670M1 675 VA / 360 Watt, USB Charing Port, Compact Form Factor.',
+                'BE670M1 675 VA / 360 Watt, ...',
       imgSrc: '/img/ups.png',
     },
 
@@ -124,7 +124,7 @@ const INITIAL_APP_STATE = {
       },
       stock: 8,
       description:
-                'AM4 socket, 65W Desktop processor. 7nm process, 32MB L3 Cache, 3MB L2 Cache.',
+                'AM4 socket, 65W Desktop processor...',
       imgSrc: '/img/ryzen9.png',
     },
     {
@@ -137,7 +137,7 @@ const INITIAL_APP_STATE = {
       },
       stock: 5,
       description:
-                'LGA 1151 socket 95W Desktop Processor, Intel UHD Graphics 630, Max Turbo 5.0 GHz, Optane Support.',
+                'LGA 1151 socket 95W Processor, Max Turbo 5.0 GHz.',
       imgSrc: '/img/intel-i9.png',
     },
     {
@@ -150,7 +150,7 @@ const INITIAL_APP_STATE = {
       },
       stock: 15,
       description:
-                'Versatile HDDs for all your PC needs bring you industry-leading excellence in personal computing.',
+                'Versatile HDDs for all your PC needs ...',
       imgSrc: '/img/barracuda-hdd.png',
     },
     {
@@ -175,7 +175,7 @@ const INITIAL_APP_STATE = {
       },
       stock: 11,
       description:
-                'GAMING OC Video Card. 8GB GDDR6, PCIe 4.0, 7nm RDNA Arch, FreeSync 2 HDR',
+                'GAMING OC Video Card. 8GB GDDR6, PCIe 4.0, ...',
       imgSrc: '/img/rx5700xt.png',
     },
   ],

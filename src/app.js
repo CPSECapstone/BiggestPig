@@ -10,7 +10,7 @@ import PrivateRoute from './components/privateRoute.js';
 import PrivateComponent from './components/privateComponent.js';
 import {AuthContext} from './contexts/authorize.js';
 
-//get aututhorization and user state
+// get aututhorization and user state
 export default function App() {
   const currAuth = JSON.parse(sessionStorage.getItem('auth'));
   const [auth, setAuth] = useState(currAuth);

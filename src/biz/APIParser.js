@@ -1,5 +1,5 @@
-import React, {} from 'react';
-import FormGenerator from '../components/form';
+import React, { } from 'react';
+import formGenerator from '../components/form';
 
 export function parseJson(apiReturn) {
   const jsonObj = JSON.parse(apiReturn);
@@ -15,7 +15,7 @@ export function parseJson(apiReturn) {
   for (const comp in components) {
     // parse each type of form
     if (comp == 'form') {
-      return FormGenerator(components.form);
+      return formGenerator(components.form);
     }
     /*
         else if (c == "button") {

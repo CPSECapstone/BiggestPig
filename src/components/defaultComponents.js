@@ -32,7 +32,9 @@ export const Header = () => {
 export const BackLink = (props) => {
   const classes = useStyles();
   return (
-    <IconButton className={classes.back} component={ Link } to="../" {...props} style={{position: 'absolute', left: '10px', bottom: '10px'}}>
+    <IconButton className={classes.back} 
+    component={ Link } to="../" {...props} 
+    style={{position: 'absolute', left: '10px', bottom: '10px'}}>
       <ArrowBackIosIcon />
     </IconButton>
   );

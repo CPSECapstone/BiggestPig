@@ -25,8 +25,8 @@ export const testJson = '{' +
     '                             "validation": "[0-9]"' +
     '                         },' +
     '                         "button": {' +
-    '                             "action": "submit",' +
-    '                             "target": "78b83774d3a907fbea42783d58a95204"' +
+    '              "action": "submit",' +
+    '              "target": "78b83774d3a907fbea42783d58a95204"' +
     '                         }' +
     '                     }' +
     '                }' +

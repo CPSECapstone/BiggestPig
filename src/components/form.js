@@ -1,15 +1,16 @@
-import React, {} from 'react';
+import React, { } from 'react';
 
 import TextField from '@material-ui/core/TextField';
 
 // THIS FUNCTION TAKES IN SOME STUFF (from an API that we defined)
 // AND RETURNS IT AS A FORM IN HTML
-// fields is array of objects in form {"label":"example field name", "default":"defaulttext"}
+// fields is array of objects in form 
+// {"label":"example field name", "default":"defaulttext"}
 // TODO how to make it do things given the variable
-//      how much do we need it to do? does it just spit out html or does it do more?
+// how much do we need it to do? does it just spit out html?
 // definitely need to make it pretty
 // definitely need to make it do things
-export default function FormGenerator(props) {
+export default function formGenerator(props) {
   const formId = props.formID;
   const childrenArray = [];
   for (const i in props) {
@@ -37,8 +38,10 @@ export default function FormGenerator(props) {
 
   function renderItems(fieldVar) {
     const f = [];
-    for (const i in fieldVar) {
-      f.push(fieldVar.[i]);
+    if (i in fieldVar) {
+      for (const i in fieldVar) {
+        f.push(fieldVar.[i]);
+      }
     }
 
     const mapped = f.map((information) => (renderDetails(information)));
