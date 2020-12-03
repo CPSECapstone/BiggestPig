@@ -1,4 +1,3 @@
-import React, { } from 'react';
 import formGenerator from '../components/form';
 
 export function parseJson(apiReturn) {
@@ -16,7 +15,7 @@ export function parseJson(apiReturn) {
     // parse each type of form
     if (comp == 'form') {
       return formGenerator(components.form);
-    }
+    } else {
     /*
         else if (c == "button") {
             return button html?
@@ -25,7 +24,7 @@ export function parseJson(apiReturn) {
             to be discovered as needed
         }
          */
-    else {
+      // else {
       console.log('api error');
       // what is our error handling?
     }
