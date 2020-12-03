@@ -13,7 +13,7 @@ export function parseJson(apiReturn) {
   const components = jsonObj.components;
   for (const comp in components) {
     // parse each type of form
-    if (comp == 'form') {
+    if (comp === 'form') {
       return formGenerator(components.form);
     } else {
     /*
