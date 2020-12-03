@@ -48,7 +48,7 @@ Runs our ESLint style checker over all .js files with the --fix tag to automatic
 Launches the test runner in the interactive watch mode for client code
 
 ## Sample Vendor App
-In `apps/` there is an example vendor app. It runs on `http://127.0.0.1:5000/` and by default it broadcasts to the local network. Sending a get request to `http://127.0.0.1:5000/`will result in receiving the following default response: 
+In `apps/` there is an example vendor app. It runs on `http://127.0.0.1:5001/` and by default it broadcasts to the local network. Sending a get request to `http://127.0.0.1:5000/`will result in receiving the following default response: 
 ```
 {
   "authorization": "6fa691d2c07bea6ae78b7022c80e9d20",
@@ -94,7 +94,7 @@ In `apps/` there is an example vendor app. It runs on `http://127.0.0.1:5000/` a
   "target": "42aefbae01d2dfd981f7da7d823d689e"
 }
 ```
-There is also a second supported operation of sending a GET request to `http://127.0.0.1:5000/hello/<name>` to which the endpoint will respond with a custom hello message. This is an example sent to `http://127.0.0.1:5000/hello/World`:
+There is also a second supported operation of sending a GET request to `http://127.0.0.1:5001/hello/<name>` to which the endpoint will respond with a custom hello message. This is an example sent to `http://127.0.0.1:5001/hello/World`:
 ```
 {
   "message": "Hello World!"

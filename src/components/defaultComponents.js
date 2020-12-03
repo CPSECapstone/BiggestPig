@@ -41,11 +41,10 @@ export const BackLink = (props) => {
   );
 };
 
-//class name too long
+// class name too long
 export const SuccessButton = (props) => {
   return (
     <button
-      className="rounded px-4 py-3 bg-green-400 text-gray-100 uppercase font-semibold shadow-lg sm:px-3 sm:text-sm sm:font-bold hover:bg-green-500 active:bg-green-600"
       {...props}
     />
   );
