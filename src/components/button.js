@@ -7,5 +7,5 @@ export default function buttonGenerator(props) {
     {() => {
       alert('clicked');
     }
-    }>props.action</Button>);
+    }>{props.action}</Button>);
 }
