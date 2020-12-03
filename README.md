@@ -25,6 +25,7 @@ Database connection requires valid credentials in a .env file
 https://cloud-haven.herokuapp.com
 
 ### CI/CD
+https://travis-ci.org/github/CPSECapstone/BiggestPig
 
 ## Available Scripts
 
