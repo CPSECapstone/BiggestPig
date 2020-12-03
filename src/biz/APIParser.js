@@ -1,4 +1,3 @@
-import React, { } from 'react';
 import formGenerator from '../components/form';
 
 export function parseJson(apiReturn) {
@@ -14,8 +13,11 @@ export function parseJson(apiReturn) {
   const components = jsonObj.components;
   for (const comp in components) {
     // parse each type of form
-    if (comp == 'form') {
+    if (comp === 'form') {
       return formGenerator(components.form);
+    } else {
+      console.log('api error');
+      // what is our error handling?
     }
     /*
         else if (c == "button") {
@@ -25,9 +27,5 @@ export function parseJson(apiReturn) {
             to be discovered as needed
         }
          */
-    else {
-      console.log('api error');
-      // what is our error handling?
-    }
   }
 }

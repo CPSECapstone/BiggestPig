@@ -10,6 +10,8 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 
 import {useAuth} from '../contexts/authorize.js';
 
+import './app.css';
+
 export default function Login() {
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -80,12 +82,7 @@ export default function Login() {
     return <Redirect to='/home' />;
   } else {
     return (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyItems: 'center',
-          alignItems: 'center'}}>
+      <div className="formatting">
         <h2>Welcome to CloudHaven</h2>
         <form
           onSubmit={postLogin}
@@ -117,14 +114,14 @@ export default function Login() {
           </div>
 
           <Button
+            className="button"
             type="submit"
             variant="contained"
-            color="primary"
-            style={{alignSelf: 'center'}}>
+            color="primary">
             Submit
           </Button>
         </form>
-        { errorMsg.length > 0 && <p style={{color: 'red'}}>{errorMsg}</p> }
+        { errorMsg.length > 0 && <p className="error">{errorMsg}</p> }
       </div>
     );
   }

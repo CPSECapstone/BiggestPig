@@ -1,0 +1,14 @@
+.formatting {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.button {
+    align-self: center;
+}
+
+.error {
+    color: red;
+}
