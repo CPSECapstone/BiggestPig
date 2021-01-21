@@ -9,7 +9,7 @@
   "dependencies": {
     "@material-ui/core": "latest",
     "@material-ui/icons": "latest",
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "concurrently": "latest",
     "dotenv": "^8.2.0",
     "nodemon": "latest",
@@ -28,7 +28,7 @@
     "lint": "eslint src --ext .js --fix",
     "client": "yarn start",
     "server": "nodemon api/server.js",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start\"",
     "start": "react-scripts start",
     "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && react-scripts build"
   },
