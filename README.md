@@ -48,7 +48,7 @@ Runs our ESLint style checker over all .js files with the --fix tag to automatic
 Launches the test runner in the interactive watch mode for client code
 
 ## Sample Vendor App
-In `apps/` there is an example vendor app. It runs on `http://127.0.0.1:5001/` and by default it broadcasts to the local network. Sending a get request to `http://127.0.0.1:5000/`will result in receiving the following default response: 
+In `apps/pythonVendor` there is an example vendor app. It runs on `http://127.0.0.1:5001/` and by default it broadcasts to the local network. Sending a get request to `http://127.0.0.1:5000/`will result in receiving the following default response: 
 ```
 {
   "authorization": "6fa691d2c07bea6ae78b7022c80e9d20",
@@ -101,9 +101,9 @@ There is also a second supported operation of sending a GET request to `http://1
 }
 ```
 ### Installing Vendor Requirements
-1. Navigate to the apps directory using: `cd BiggestPig/apps` 
-2. Install the requiremnts using using pip:  `pip install -r requirements.txt`
+1. Navigate to the apps directory using: `cd BiggestPig/apps/pythonVendor` 
+2. Install the requirements using pip:  `pip install -r requirements.txt`
 
 ### Running Default Vendor App
-1. Navigate to the apps directory using: `cd BiggestPig/apps` 
+1. Navigate to the apps directory using: `cd BiggestPig/apps/pythonVendor` 
 2. Run the app with: `python dummy.py`
