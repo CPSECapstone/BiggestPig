@@ -1,23 +1,18 @@
 import {useStyles} from '../styles';
 import React from 'react';
+
+import {Link} from 'react-router-dom';
+
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import {Link} from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 export default function Home() {
   const classes = useStyles();
-  // eslint-disable-next-line no-unused-vars
-  const [value, setValue] = React.useState('recents');
-
-  // eslint-disable-next-line no-unused-vars
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
   return (
     <div className={classes.root}>

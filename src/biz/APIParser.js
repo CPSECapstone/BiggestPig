@@ -16,6 +16,10 @@ export function parseJson(apiReturn) {
     if (comp === 'form') {
       return formGenerator(components.form);
     } else {
+
+      console.log('api error');
+      // what is our error handling?
+    }
     /*
         else if (c == "button") {
             return button html?
@@ -24,9 +28,5 @@ export function parseJson(apiReturn) {
             to be discovered as needed
         }
          */
-      // else {
-      console.log('api error');
-      // what is our error handling?
-    }
   }
 }

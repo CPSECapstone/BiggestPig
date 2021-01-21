@@ -1,6 +1,5 @@
 import express from 'express';
 import { json, urlencoded } from 'body-parser';
-import crypto from 'crypto';
 
 import db from './database.js';
 
