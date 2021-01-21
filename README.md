@@ -105,5 +105,5 @@ There is also a second supported operation of sending a GET request to `http://1
 2. Install the requirements using pip:  `pip install -r requirements.txt`
 
 ### Running Default Vendor App
-1. Navigate to the apps directory using: `cd BiggestPig/apps/pythonVendor` 
+1. Navigate to the pythonVendor directory using: `cd BiggestPig/apps/pythonVendor` 
 2. Run the app with: `python dummy.py`
