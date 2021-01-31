@@ -12,7 +12,18 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 app.use(json());
 app.use(urlencoded({ extended: true }));
 
-app.get('/api/hello', (req, res) => {
+app.get('/api/getcomp/:comp/:text', (req, res) => {
+   console.log(req.params);
+   const requestedComponent = req.params['comp'];
+   const resquestedText = req.params['text'];
+   if (requestedComponent && resquestedText) {
+    res.send(`<${requestedComponent}>${resquestedText}</${requestedComponent}>`);
+   } else {
+      res.status(403).send('no thanks');
+   }
+});
+
+app.get('/api/home', (req, res) => {
    res.send({ express: 'Hello From Express' });
 });
 
