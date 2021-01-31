@@ -10,6 +10,7 @@ import {AuthContext} from './contexts/authorize.js';
 import Home from './pages/home';
 import Demo2 from './pages/demo2';
 import Login from './pages/login';
+import Vendor from './pages/vendor';
 import FormPropsTextFields from './pages/demo';
 
 // get authorization and user state
@@ -39,6 +40,7 @@ export default function App() {
             <PrivateRoute exact path="/" component={Home} />
             <PrivateRoute path="/home" component={Home} />
             <PrivateRoute path="/demo2" component={Demo2} />
+            <PrivateRoute path="/vendor" component={Vendor} />
             <Route path="/login" component={Login} />
           </Switch>
         </Provider>

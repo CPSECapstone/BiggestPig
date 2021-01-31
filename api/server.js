@@ -1,5 +1,6 @@
 import express from 'express';
 import { json, urlencoded } from 'body-parser';
+import axios from 'axios';
 
 import db from './database.js';
 
@@ -54,5 +55,17 @@ app.post('/api/auth', (req, res) => {
       });
 
 });
+
+app.get('/api/start-vendor-app', function (req, res) {
+   // cloudhaven api is running on port 5000
+   axios.get('http://127.0.0.1:8081/start-app')
+   .then((result) => {
+      res.status(200).send(result.data);
+   }).catch((e) => {
+      console.error(e);
+      res.status(500).send(e);
+   });
+});
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
