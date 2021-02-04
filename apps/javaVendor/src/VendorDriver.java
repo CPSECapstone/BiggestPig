@@ -27,6 +27,14 @@ public class VendorDriver {
       os.close();
     } else if (pathComponents.length > 2 && pathComponents[1].equals("profile")) {
       handleProfileRequest(exchange, pathComponents[2]);
+    } else if (pathComponents.length == 2 && pathComponents[1].equals("table")) {
+      String response = "Please specify a table. \nYou may specify a table by appending the token to the request URI: /table/<user>";
+      exchange.sendResponseHeaders(200, response.getBytes().length); //response code and length
+      OutputStream os = exchange.getResponseBody();
+      os.write(response.getBytes());
+      os.close();
+    } else if (pathComponents.length > 2 && pathComponents[1].equals("table")) {
+      handleTableRequest(exchange, pathComponents[2]);
     } else {
       String response = "Welcome to the default Java Vendor Application!!!";
       exchange.sendResponseHeaders(200, response.getBytes().length); //response code and length
@@ -43,6 +51,17 @@ public class VendorDriver {
     headers.add("content-type", "application/json");
     Profile profile = new Profile(token);
     String response = profile.toSendableJson().toString();
+    exchange.sendResponseHeaders(200, response.getBytes().length); //response code and length
+    OutputStream os = exchange.getResponseBody();
+    os.write(response.getBytes());
+    os.close();
+  }
+
+  private static void handleTableRequest(HttpExchange exchange, String token) throws IOException {
+    Headers headers = exchange.getResponseHeaders();
+    headers.add("content-type", "application/json");
+    Table table = new Table(token);
+    String response = table.toSendableJson().toString();
     exchange.sendResponseHeaders(200, response.getBytes().length); //response code and length
     OutputStream os = exchange.getResponseBody();
     os.write(response.getBytes());
