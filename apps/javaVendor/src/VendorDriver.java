@@ -3,6 +3,7 @@ import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 
+import javax.json.JsonObject;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
@@ -41,7 +42,7 @@ public class VendorDriver {
     Headers headers = exchange.getResponseHeaders();
     headers.add("content-type", "application/json");
     Profile profile = new Profile(token);
-    String response = profile.toString();
+    String response = profile.toSendableJson().toString();
     exchange.sendResponseHeaders(200, response.getBytes().length); //response code and length
     OutputStream os = exchange.getResponseBody();
     os.write(response.getBytes());

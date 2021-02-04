@@ -1,10 +1,12 @@
 import com.github.javafaker.Faker;
-
-import java.text.SimpleDateFormat;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 import java.util.Date;
 import java.util.Random;
+import java.text.SimpleDateFormat;
 
-public class Profile {
+public class Profile implements JsonData {
   private final Faker faker;
   private final String fName;
   private final String lName;
@@ -48,5 +50,21 @@ public class Profile {
       ", \"Email\": \"" + email + "\"" +
       ", \"Identifier\": \"" + identifier + "\"" +
       "}";
+  }
+
+  public JsonObject toSendableJson() {
+    return Json.createObjectBuilder()
+      .add("components", Json.createArrayBuilder()
+        .add(TextComponent.generateText("first-name", fName))
+        .add(TextComponent.generateText("last-name", lName))
+        .add(TextComponent.generateText("birthday", formatter.format(birthday)))
+        .add(TextComponent.generateText("phone-number", cell))
+        .add(TextComponent.generateText("street-address", address))
+        .add(TextComponent.generateText("city", city))
+        .add(TextComponent.generateText("state", state))
+        .add(TextComponent.generateText("zipcode", zip))
+        .add(TextComponent.generateText("email", email))
+        .add(TextComponent.generateText("identifier", identifier)))
+      .build();
   }
 }
