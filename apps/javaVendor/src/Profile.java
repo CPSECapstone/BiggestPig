@@ -1,9 +1,6 @@
-import com.github.javafaker.Faker;
 import javax.json.Json;
 import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
 import java.util.Date;
-import java.util.Random;
 import java.text.SimpleDateFormat;
 
 public class Profile extends GeneratedPage implements JsonData {
