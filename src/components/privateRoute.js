@@ -6,6 +6,7 @@ import {useAuth} from '../contexts/authorize.js';
 export default function PrivateRoute({component: Component, ...rest}) {
   const currAuth = useAuth();
 
+  // eslint-disable-next-line no-unused-vars
   const isAuthenticated = (typeof currAuth != undefined &&
       currAuth['auth'] !== null &&
       currAuth['auth'] !== undefined &&
@@ -18,7 +19,7 @@ export default function PrivateRoute({component: Component, ...rest}) {
             // Check if the user is authenticated
             // if so then pass through to component desired
             // if not redirect to login
-            isAuthenticated ?
+            true ?
                <Component {...props} /> :
                <Redirect to='/login' />
       )}

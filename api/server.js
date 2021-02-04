@@ -1,5 +1,6 @@
 import express from 'express';
 import { json, urlencoded } from 'body-parser';
+import axios from 'axios';
 
 import db from './database.js';
 
@@ -12,7 +13,18 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 app.use(json());
 app.use(urlencoded({ extended: true }));
 
-app.get('/api/hello', (req, res) => {
+app.get('/api/getcomp/:comp/:text', (req, res) => {
+   console.log(req.params);
+   const requestedComponent = req.params['comp'];
+   const resquestedText = req.params['text'];
+   if (requestedComponent && resquestedText) {
+    res.send(`<${requestedComponent}>${resquestedText}</${requestedComponent}>`);
+   } else {
+      res.status(403).send('no thanks');
+   }
+});
+
+app.get('/api/home', (req, res) => {
    res.send({ express: 'Hello From Express' });
 });
 
@@ -43,5 +55,17 @@ app.post('/api/auth', (req, res) => {
       });
 
 });
+
+app.get('/api/start-vendor-app', function (req, res) {
+   // cloudhaven api is running on port 5000
+   axios.get('http://127.0.0.1:8081/start-app')
+   .then((result) => {
+      res.status(200).send(result.data);
+   }).catch((e) => {
+      console.error(e);
+      res.status(500).send(e);
+   });
+});
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
