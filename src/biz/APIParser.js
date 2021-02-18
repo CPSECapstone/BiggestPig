@@ -16,7 +16,7 @@ export function parseJson(apiReturn) {
     if (comp === 'form') {
       return formGenerator(components.form);
     } else {
-      console.log('api error');
+      console.error('api error');
       // what is our error handling?
     }
     /*

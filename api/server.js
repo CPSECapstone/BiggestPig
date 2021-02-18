@@ -1,3 +1,4 @@
+/* eslint-disable  */
 import express from 'express';
 import { json, urlencoded } from 'body-parser';
 import axios from 'axios';
@@ -13,58 +14,71 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 app.use(json());
 app.use(urlencoded({ extended: true }));
 
-app.get('/api/getcomp/:comp/:text', (req, res) => {
-   console.log(req.params);
-   const requestedComponent = req.params['comp'];
-   const resquestedText = req.params['text'];
-   if (requestedComponent && resquestedText) {
-    res.send(`<${requestedComponent}>${resquestedText}</${requestedComponent}>`);
-   } else {
-      res.status(403).send('no thanks');
-   }
-});
-
-app.get('/api/home', (req, res) => {
-   res.send({ express: 'Hello From Express' });
-});
-
-app.post('/api/hello', (req, res) => {
-   console.log(req.body);
-   res.send(
-      `I received your POST request. This is what you sent me: ${req.body.post}`,
-   );
-});
-
 // Authentication of user takes place here
 // Check db for hash of password
 app.post('/api/auth', (req, res) => {
 
-   db.oneOrNone('SELECT * FROM "Users" WHERE "Email" = $1 AND "Password" = $2', [req.body.email, req.body.hashedPass])
-      .then(function (data) {
-         if (data !== null && typeof data != undefined) {
-            res.send(
-               { uid: data.ID },
-            );
-         } else {
-            res.status(401).send();
-         }
-      })
-      .catch(function (error) {
-         console.log(error);
-         res.status(500).send();
-      });
+  db.oneOrNone('SELECT * FROM "Users" WHERE "Email" = $1 AND "Password" = $2', [req.body.email, req.body.hashedPass])
+    .then(function (data) {
+      if (data !== null && typeof data != undefined) {
+        res.send(
+          { uid: data.ID },
+        );
+      } else {
+        res.status(401).send();
+      }
+    })
+    .catch(function (error) {
+      console.error(error);
+      res.status(500).send();
+    });
 
 });
 
+// this can be expanded to where vendors have associated id's
+// and vendor apps have id's within the vendors org
+app.get('/api/vendors', function (req, res) {
+  db.many('SELECT * FROM "Vendors"', [])
+    .then(function (data) {
+      if (data !== null && typeof data != undefined) {
+        res.status(200).send(data);
+      } else {
+        res.status(400).send();
+      }
+    })
+    .catch(function (error) {
+      console.error(error);
+      res.status(500).send();
+    });
+});
+
 app.get('/api/start-vendor-app', function (req, res) {
-   // cloudhaven api is running on port 5000
-   axios.get('http://127.0.0.1:8081/start-app')
-   .then((result) => {
-      res.status(200).send(result.data);
-   }).catch((e) => {
-      console.error(e);
-      res.status(500).send(e);
-   });
+  const vendorid = req.query.vendorid;
+  
+  if (!vendorid) {
+    res.status(400).send("No vendor id provided");
+  }
+
+  db.oneOrNone('SELECT * FROM "Vendors" WHERE "ID" = $1', [vendorid])
+    .then(function (data) {
+      if (data !== null && typeof data != undefined) {
+        var vendorurl = 'http://' + data.URL.split('//')[1] + '/start-app';
+
+        axios.get(vendorurl)
+          .then((result) => {
+            res.status(200).send(result.data);
+          }).catch((e) => {
+            console.error(e);
+            res.status(500).send(e);
+          });
+      } else {
+        res.status(400).send();
+      }
+    })
+    .catch(function (error) {
+      console.error(error);
+      res.status(500).send();
+    });
 });
 
 

@@ -1,8 +1,0 @@
-#!/bin/bash
-
-npm start &
-P1=$!
-cd ../../ && npm run dev &
-P2=$!
-wait $P1 $P2
-

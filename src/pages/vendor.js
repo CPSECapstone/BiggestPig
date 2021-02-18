@@ -10,23 +10,28 @@ import './app.css';
 
 import axios from 'axios';
 
-export default function Vendor() {
+export default function Vendor(props) {
   const classes = useStyles();
-  // pageContents is json from vendor app
   const [pageContents, setPageContents] = useState();
 
-  useEffect(() => {
-    axios.get(`/api/start-vendor-app`, {
-    }).then((resp) => {
-      console.log(resp.data);
-      setPageContents(resp.data);
-    }).catch((e) => {
-      console.error(e);
-    });
-  }, [pageContents]);
+  const vendorid = props.location.state.vendorid;
 
-  return (
-    <div className="formatting">
+  useEffect(() => {
+    if (vendorid) {
+      axios.get(`/api/start-vendor-app`, {
+        params: {
+          vendorid: vendorid,
+        },
+      }).then((resp) => {
+        setPageContents(resp.data);
+      }).catch((e) => {
+        console.error(e);
+      });
+    }
+  }, [vendorid]);
+
+  return (vendorid &&
+    (<div className="formatting">
       <BackLink />
       <Typography variant="body1" className={classes.title}>
         Welcome to Vendor App
@@ -37,6 +42,6 @@ export default function Vendor() {
       <div>
         {pageContents && parseJson(JSON.stringify(pageContents))}
       </div>
-    </div>
+    </div>)
   );
 }
