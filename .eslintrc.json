@@ -3,7 +3,8 @@
       "react-app",
       "google"
    ],
-   "rules": {
-      "require-jsdoc": "off"
-   }
+    "rules": {
+        "require-jsdoc": "off",
+        "linebreak-style":  "off"
+    }
 }

@@ -8,6 +8,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // DO NOT DO THIS IN PRODUCTION, GET FREE CERT
+//utilized cert from core services team
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 
 app.use(json());
