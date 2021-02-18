@@ -1,4 +1,4 @@
-# CloudHaven
+#  CloudHaven
 ## TEAM Biggest Pig
 - Sarah Samora
 - Grant Matejka
@@ -46,7 +46,7 @@ Runs our ESLint style checker over all .js files with the --fix tag to automatic
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode for client code
+Launches the test runner in the interactive watch mode for client code.
 
 ## Sample Vendor App
 In `apps/pythonVendor` there is an example vendor app. It runs on `http://127.0.0.1:5001/` and by default it broadcasts to the local network. Sending a get request to `http://127.0.0.1:5000/`will result in receiving the following default response: 
