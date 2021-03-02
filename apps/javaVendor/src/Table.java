@@ -1,8 +1,8 @@
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
-import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 
-public class Table extends GeneratedPage implements JsonData{
+public class Table extends GeneratedPage implements JsonData {
 
   private final int display;
   private final JsonArrayBuilder rows;
@@ -14,22 +14,21 @@ public class Table extends GeneratedPage implements JsonData{
     int numRows = faker.number().numberBetween(5, 15);
     for (int i = 0; i < numRows; i++) {
       rows.add(Json.createArrayBuilder()
-        .add(TextComponent.generateText(getUUIDFromFaker()))
-        .add(TextComponent.generateText(faker.medical().symptoms()))
-        .add(TextComponent.generateText(faker.medical().medicineName()))
+        .add(TextComponent.getComponent().addContent(faker.internet().uuid()).build())
+        .add(TextComponent.getComponent().addContent(faker.medical().symptoms()).build())
+        .add(TextComponent.getComponent().addContent(faker.medical().medicineName()).build())
       );
     }
   }
 
   @Override
-  public JsonObject toSendableJson() {
+  public JsonObjectBuilder toSendableJson() {
     return Json.createObjectBuilder()
       .add("display", display)
       .add("headers", Json.createArrayBuilder()
         .add("Patient")
         .add("Symptoms")
         .add("Medicine Perscribed"))
-      .add("rows", rows)
-      .build();
+      .add("rows", rows);
   }
 }

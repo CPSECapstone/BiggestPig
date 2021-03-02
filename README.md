@@ -48,7 +48,15 @@ Runs our ESLint style checker over all .js files with the --fix tag to automatic
 
 Launches the test runner in the interactive watch mode for client code.
 
-## Sample Vendor App
+## Sample Java Vendor App
+In `apps/javaVendor` there is an example vendor app. It runs on `http://127.0.0.1:4040/` and by default it broadcasts to the local network. Sending a get request to `http://127.0.0.1:4040/` will result in receiving a response indicating how to get customized sample json.
+ 
+This app relies on libraries with the following Maven coordinates.
+- `com.github.javafaker:javafaker:1.02`
+- `javax.json:javax.json-api:1.1.4`
+- `org.glassfish:javax.json:1.0.2`
+
+## Sample Python Vendor App
 In `apps/pythonVendor` there is an example vendor app. It runs on `http://127.0.0.1:5001/` and by default it broadcasts to the local network. Sending a get request to `http://127.0.0.1:5000/`will result in receiving the following default response: 
 ```
 {
