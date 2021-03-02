@@ -21,7 +21,6 @@ export default function formGenerator(props) {
   }
 
   function renderDetails(information) {
-    console.log(information.label);
     if (typeof information.label !== 'undefined') {
       return (
         <div>
@@ -36,7 +35,6 @@ export default function formGenerator(props) {
         </div>
       );
     } else {
-      console.log('abcxyz');
       return information;
     }
   }
