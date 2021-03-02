@@ -4,7 +4,7 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 
-const chURL = 'http://127.0.0.1:5000/api';
+const cloudhavenUrl = 'http://127.0.0.1:5000/api';
 
 const vendorAppJson = {
   'authorization': '6fa691d2c07bea6ae78b7022c80e9d20',
