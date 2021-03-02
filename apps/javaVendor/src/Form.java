@@ -12,24 +12,18 @@ public class Form extends GeneratedPage implements JsonData  {
     title = faker.medical().hospitalName();
     this.fields = Json.createArrayBuilder();
     for (int i = 0; i < numFields; i++) {
+      TextInputComponent field = TextInputComponent.getComponent();
+      field.addLabel(faker.internet().slug());
       if (faker.bool().bool()) {
-        fields.add(Json.createArrayBuilder()
-          .add(TextInputComponent.generateTextInput(
-            faker.internet().slug(),
-            faker.bool().bool(),
-            faker.bool().bool()
-          ))
-        );
-      } else {
-        fields.add(Json.createArrayBuilder()
-          .add(TextInputComponent.generateTextInput(
-            faker.internet().slug(),
-            faker.bool().bool(),
-            faker.bool().bool(),
-            "[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+"
-          ))
-        );
+        field.isSensitive();
       }
+      if (faker.bool().bool()) {
+        field.isRequired();
+      }
+      if (faker.bool().bool()) {
+        field.addMatch( "[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+");
+      }
+      fields.add(field.build());
     }
   }
 

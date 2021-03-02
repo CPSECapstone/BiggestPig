@@ -1,31 +1,40 @@
 import javax.json.Json;
 import javax.json.JsonObjectBuilder;
-import java.util.UUID;
 
-public class TextComponent {
-  public static JsonObjectBuilder generateText(String content) {
-    return Json.createObjectBuilder()
-      .add("component", "text")
-      .add("content", content);
+public class TextComponent implements Component {
+
+  private JsonObjectBuilder component;
+
+  public static TextComponent getComponent() {
+    try {
+      return (TextComponent) ComponentFactory.makeComponent(ComponentFactory.Type.TEXT_INPUT_FIELD);
+    } catch (ComponentFactory.UnsupportedType unsupportedType) {
+      unsupportedType.printStackTrace();
+    }
+    return null;
   }
 
-  public static JsonObjectBuilder generateText(String label, String content) {
-    return Json.createObjectBuilder()
-      .add("component", "text")
-      .add("content", content)
-      .add("label", label);
+  public TextComponent() {
+    this.component = Json.createObjectBuilder().add("component", "text");
   }
 
-  public static JsonObjectBuilder generateText(UUID token) {
-    return Json.createObjectBuilder()
-      .add("component", "text")
-      .add("token", token.toString());
+  public TextComponent addContent(String content) {
+    this.component.add("content", content);
+    return this;
   }
 
-  public static JsonObjectBuilder generateText(String label, UUID token) {
-    return Json.createObjectBuilder()
-      .add("component", "text")
-      .add("token", token.toString())
-      .add("label", label);
+  public TextComponent addLabel(String label) {
+    this.component.add("label", label);
+    return this;
+  }
+
+  public TextComponent addToken(String token) {
+    this.component.add("token", token);
+    return this;
+  }
+
+  @Override
+  public JsonObjectBuilder build() {
+    return this.component;
   }
 }

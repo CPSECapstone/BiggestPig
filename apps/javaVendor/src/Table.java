@@ -14,9 +14,9 @@ public class Table extends GeneratedPage implements JsonData {
     int numRows = faker.number().numberBetween(5, 15);
     for (int i = 0; i < numRows; i++) {
       rows.add(Json.createArrayBuilder()
-        .add(TextComponent.generateText(getUUIDFromFaker()))
-        .add(TextComponent.generateText(faker.medical().symptoms()))
-        .add(TextComponent.generateText(faker.medical().medicineName()))
+        .add(TextComponent.getComponent().addContent(faker.internet().uuid()).build())
+        .add(TextComponent.getComponent().addContent(faker.medical().symptoms()).build())
+        .add(TextComponent.getComponent().addContent(faker.medical().medicineName()).build())
       );
     }
   }
