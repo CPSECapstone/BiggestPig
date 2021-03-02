@@ -1,5 +1,6 @@
 import javax.json.Json;
 import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.UUID;
@@ -33,7 +34,7 @@ public class Profile extends GeneratedPage implements JsonData {
     this.ssnToken = getUUIDFromFaker();
   }
 
-  public JsonObject toSendableJson() {
+  public JsonObjectBuilder toSendableJson() {
     return Json.createObjectBuilder()
       .add("components", Json.createArrayBuilder()
         .add(TextComponent.generateText("Profile Page"))
@@ -47,7 +48,6 @@ public class Profile extends GeneratedPage implements JsonData {
         .add(TextComponent.generateText("zipcode", zip))
         .add(TextComponent.generateText("email", email))
         .add(TextComponent.generateText("identifier", identifier))
-        .add(TextComponent.generateText("ssn", ssnToken)))
-      .build();
+        .add(TextComponent.generateText("ssn", ssnToken)));
   }
 }

@@ -1,5 +1,5 @@
-import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 
 public interface JsonData {
-  public JsonObject toSendableJson();
+  public JsonObjectBuilder toSendableJson();
 }

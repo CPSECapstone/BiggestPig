@@ -1,6 +1,7 @@
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 
 public class Table extends GeneratedPage implements JsonData{
 
@@ -22,14 +23,13 @@ public class Table extends GeneratedPage implements JsonData{
   }
 
   @Override
-  public JsonObject toSendableJson() {
+  public JsonObjectBuilder toSendableJson() {
     return Json.createObjectBuilder()
       .add("display", display)
       .add("headers", Json.createArrayBuilder()
         .add("Patient")
         .add("Symptoms")
         .add("Medicine Perscribed"))
-      .add("rows", rows)
-      .build();
+      .add("rows", rows);
   }
 }

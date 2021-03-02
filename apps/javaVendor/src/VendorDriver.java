@@ -4,11 +4,16 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 
 import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
+import java.util.UUID;
 
 public class VendorDriver {
+
+  private static UUID vendorId = UUID.randomUUID();
+  private static UUID vendorAuth = UUID.randomUUID();
 
   public static void main(String[] args) throws IOException {
     HttpServer server = HttpServer.create(new InetSocketAddress(4040), 0);
@@ -50,7 +55,7 @@ public class VendorDriver {
     Headers headers = exchange.getResponseHeaders();
     headers.add("content-type", "application/json");
     Profile profile = new Profile(token);
-    String response = profile.toSendableJson().toString();
+    String response = attachVendorAuth(profile.toSendableJson()).toString();
     exchange.sendResponseHeaders(200, response.getBytes().length); //response code and length
     OutputStream os = exchange.getResponseBody();
     os.write(response.getBytes());
@@ -61,11 +66,17 @@ public class VendorDriver {
     Headers headers = exchange.getResponseHeaders();
     headers.add("content-type", "application/json");
     Table table = new Table(token);
-    String response = table.toSendableJson().toString();
+    String response = attachVendorAuth(table.toSendableJson()).toString();
     exchange.sendResponseHeaders(200, response.getBytes().length); //response code and length
     OutputStream os = exchange.getResponseBody();
     os.write(response.getBytes());
     os.close();
   }
 
+  private static JsonObject attachVendorAuth(JsonObjectBuilder response) {
+    return response
+      .add("vendorAuth", vendorAuth.toString())
+      .add("vendorId", vendorId.toString())
+      .build();
+  }
 }
