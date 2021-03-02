@@ -1,9 +1,8 @@
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
-import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
 
-public class Table extends GeneratedPage implements JsonData{
+public class Table extends GeneratedPage implements JsonData {
 
   private final int display;
   private final JsonArrayBuilder rows;
