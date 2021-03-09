@@ -6,6 +6,13 @@
 - Justin Evans
 - Kaitlin Clever
 
+## Focus
+
+We focused in on a particular field for our project.
+
+This field was Vendor Apps, and what this means is that we wanted to experiement with how CloudHaven and vendor apps would communicate and behave together.
+
+
 ## Stack
 
 CloudHaven utilizes React, Node, Express and Heroku hosted PostGres database.
@@ -13,6 +20,7 @@ CloudHaven utilizes React, Node, Express and Heroku hosted PostGres database.
 ## Structure
 
 All client code is in the upper most directory and server side code is in the 'api/' folder.
+
 Vendor apps are in the subdirectory called `apps`.
 
 ## Dependencies
