@@ -2,6 +2,7 @@ import React, { } from 'react';
 import buttonGenerator from './button';
 import TextField from '@material-ui/core/TextField';
 
+// CODE REVIEW BELOW
 // THIS FUNCTION TAKES IN SOME STUFF (from an API that we defined)
 // AND RETURNS IT AS A FORM IN HTML
 // fields is array of objects in form
