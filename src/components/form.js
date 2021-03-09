@@ -2,15 +2,13 @@ import React, { } from 'react';
 import buttonGenerator from './button';
 import TextField from '@material-ui/core/TextField';
 
-// CODE REVIEW BELOW
-// THIS FUNCTION TAKES IN SOME STUFF (from an API that we defined)
+// This function takes input in from an API that we defined below:
+// https://docs.google.com/document/d/1ypoLhyBFQx_O77DBh7Rj-gX9gO2b4tPxkTuNVJBseFs/edit#heading=h.zbevhq6kienr)
 // AND RETURNS IT AS A FORM IN HTML
 // fields is array of objects in form
 // {"label":"example field name", "default":"defaulttext"}
-// TODO how to make it do things given the variable
 // how much do we need it to do? does it just spit out html?
 // definitely need to make it pretty
-// definitely need to make it do things
 export default function formGenerator(props) {
   const formId = props.formID;
   const childrenArray = [];
@@ -22,7 +20,7 @@ export default function formGenerator(props) {
   }
 
   function renderDetails(information) {
-    if (typeof information.label !== 'undefined') {
+    if (typeof information.label) {
       return (
         <div>
           <TextField
@@ -32,7 +30,7 @@ export default function formGenerator(props) {
             variant="filled"
             defaultValue={information.validation}
           />
-          <p></p>
+          <br>></br>
         </div>
       );
     } else {
