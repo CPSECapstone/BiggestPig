@@ -13,6 +13,7 @@ CloudHaven utilizes React, Node, Express and Heroku hosted PostGres database.
 ## Structure
 
 All client code is in the upper most directory and server side code is in the 'api/' folder.
+Vendor apps are in the subdirectory called `apps`.
 
 ## Dependencies
 
@@ -47,6 +48,11 @@ Runs our ESLint style checker over all .js files with the --fix tag to automatic
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode for client code.
+
+## Sample Node App 
+
+In a bash system should be able to just run script in top level folder called `run`.
+This will run both cloudhaven and vendor app in parallel and allow them to communicate with each other based on set up ports.
 
 ## Sample Java Vendor App
 In `apps/javaVendor` there is an example vendor app. It runs on `http://127.0.0.1:4040/` and by default it broadcasts to the local network. Sending a get request to `http://127.0.0.1:4040/` will result in receiving a response indicating how to get customized sample json.
@@ -116,3 +122,4 @@ There is also a second supported operation of sending a GET request to `http://1
 ### Running Default Vendor App
 1. Navigate to the pythonVendor directory using: `cd BiggestPig/apps/pythonVendor` 
 2. Run the app with: `python dummy.py`
+
