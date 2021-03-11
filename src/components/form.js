@@ -20,7 +20,7 @@ export default function formGenerator(props) {
   }
 
   function renderDetails(information) {
-    if (typeof information.label) {
+    if (typeof information.label !== undefined) {
       return (
         <div>
           <TextField
