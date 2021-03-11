@@ -30,7 +30,7 @@ export default function formGenerator(props) {
             variant="filled"
             defaultValue={information.validation}
           />
-          <br>></br>
+          <br></br>
         </div>
       );
     } else {
