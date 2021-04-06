@@ -137,5 +137,5 @@ There is also a second supported operation of sending a GET request to `http://1
 3. Basic validation on user fields ensuring correcty looking data entered 
 4. Vender App Creation using Approved API 
 5. Profile,Table and Forms all supported 
-6. command line startup using Yarn to test vender apps 
+6. command line startup using Yarn to manually test vender apps 
 7. expectant form behavior for populated fields such as passwords being * out in webpage. 
