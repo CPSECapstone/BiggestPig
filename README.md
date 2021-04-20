@@ -29,6 +29,7 @@ All CloudHaven requires is the most up to date version of Node and all other dep
 Database connection requires valid credentials in a .env file
 
 ## Relevant Links
+Feedback is welcome through our Google Form: https://forms.gle/h97ApKGZbs3uEo9R9
 
 ### Deployment Location
 https://cloud-haven.herokuapp.com
