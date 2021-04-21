@@ -13,7 +13,6 @@ public class Table extends GeneratedPage implements JsonData {
     this.rows = Json.createArrayBuilder();
     int numRows = faker.number().numberBetween(5, 15);
     for (int i = 0; i < numRows; i++) {
-      TextComponent field1 = TextComponent.getComponent().addContent(faker.internet().uuid());
       rows.add(Json.createArrayBuilder()
         .add(TextComponent.getComponent().addContent(faker.internet().uuid()).build())
         .add(TextComponent.getComponent().addContent(faker.medical().symptoms()).build())
