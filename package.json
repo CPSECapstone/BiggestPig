@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "14.x"
+    "node": "x.x"
   },
   "main": "components/index.js",
   "dependencies": {
@@ -14,12 +14,13 @@
     "concurrently": "latest",
     "dotenv": "^8.2.0",
     "http-proxy-middleware": "^1.0.6",
-    "nodemon": "latest",
-    "pg-promise": "^10.7.3",
+    "node": "^15.14.0",
+    "nodemon": "^2.0.7",
+    "pg-promise": "^10.10.1",
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "latest",
-    "react-scripts": "latest"
+    "react-scripts": "^4.0.3"
   },
   "type": "module",
   "description": "https://github.com/mui-org/material-ui/blob/master/docs/src/pages/components/text-fields/FormPropsTextFields.js",
