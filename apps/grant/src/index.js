@@ -24,16 +24,12 @@ const vendorAppJson = {
                   "required": true,
                   "validation": "[a-fA-F0-9]",
                },
-            },
-         },
-         "column1": {
-            "children": {
                "textFormField": {
                   "label": "Phone Number",
                   "validation": "[0-9]",
                },
                "button": {
-                  "action": "submit",
+                  "action": "Click Me!",
                   "target": "78b83774d3a907fbea42783d58a95204",
                },
             },

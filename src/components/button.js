@@ -6,6 +6,5 @@ export default function buttonGenerator(props) {
   return (<Button variant='outlined' onClick=
     {() => {
       alert('clicked');
-    }
-    }>{props.action}</Button>);
+    }}>{props.action}</Button>);
 }

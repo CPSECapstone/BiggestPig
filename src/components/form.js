@@ -1,6 +1,7 @@
 import React, { } from 'react';
 import buttonGenerator from './button';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 // This function takes input in from an API that we defined below:
 // https://docs.google.com/document/d/1ypoLhyBFQx_O77DBh7Rj-gX9gO2b4tPxkTuNVJBseFs/edit#heading=h.zbevhq6kienr)
@@ -20,7 +21,7 @@ export default function formGenerator(props) {
   }
 
   function renderDetails(information) {
-    if (typeof information.label) {
+    if (typeof information.label !== 'undefined') {
       return (
         <div>
           <TextField
@@ -30,22 +31,26 @@ export default function formGenerator(props) {
             variant="filled"
             defaultValue={information.validation}
           />
-          <br>></br>
+          <br></br>
         </div>
       );
     } else {
-      return information;
+      return <Button variant='outlined' onClick=
+        {() => {
+          alert('clicked');
+        }}>Click Me</Button>;
     }
   }
 
   function renderItems(fieldVar) {
     const f = [];
     if (fieldVar) {
+      // eslint-disable-next-line guard-for-in
       for (const i in fieldVar) {
         if (i !== 'button') {
-          f.push(fieldVar.[i]);
+          f.push(fieldVar[i]);
         } else {
-          f.push(buttonGenerator(fieldVar.[i]));
+          f.push(buttonGenerator(fieldVar[i]));
         }
       }
     }
