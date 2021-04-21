@@ -46,6 +46,10 @@ To aid in the development process here are some provided scripts:
 
 This will build and run both server and client side and open to 'http://localhost:3000/' with a proxy to port 5000
 
+### 'yarn install'
+
+Install all the dependencies listed within package.json in the local node_modules folder.
+
 ### `yarn update`
 
 Runs 'npm install' for both server and client side code
