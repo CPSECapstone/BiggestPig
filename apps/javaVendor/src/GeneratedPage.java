@@ -11,8 +11,4 @@ public abstract class GeneratedPage {
     Random seed = new Random(seedStarter);
     this.faker = new Faker(seed);
   }
-
-  UUID getUUIDFromFaker() {
-    return UUID.fromString(faker.internet().uuid());
-  }
 }

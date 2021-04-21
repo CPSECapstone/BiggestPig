@@ -1,0 +1,8 @@
+#!/bin/bash
+
+npm run lint && npm run dev &
+P1=$!
+cd apps/grant && npm start &
+P2=$!
+wait $P1 $P2
+

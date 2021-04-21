@@ -28,7 +28,7 @@ export default function Home() {
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
-                                        Demo 1
+                    Demo 1
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -46,7 +46,7 @@ export default function Home() {
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
-                                        Demo 2
+                    Demo 2
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -55,7 +55,14 @@ export default function Home() {
         </Grid>
         <Grid item>
           <Paper className={classes.paper}>
-            <Card className={classes.card} component={Link} to="/vendor">
+            <Card className={classes.card}
+              component={Link}
+              to={{
+                pathname: '/vendor',
+                state: {
+                  vendorid: 1,
+                },
+              }}>
               <CardActionArea>
                 <CardMedia
                   className={classes.media}
