@@ -22,6 +22,7 @@ public class VendorDriver {
   }
 
   private static void handleRequest(HttpExchange exchange) throws IOException {
+    exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
     String[] pathComponents = exchange.getRequestURI().getPath().split("/");
     if (pathComponents.length == 2 && pathComponents[1].equals("profile")) {
       String response = "Please specify a user. \nYou may specify a user by appending the token to the request URI: /profile/<user>";
