@@ -7,7 +7,7 @@ public class TextComponent implements Component {
 
   public static TextComponent getComponent() {
     try {
-      return (TextComponent) ComponentFactory.makeComponent(ComponentFactory.Type.TEXT_INPUT_FIELD);
+      return (TextComponent) ComponentFactory.makeComponent(ComponentFactory.Type.TEXT);
     } catch (ComponentFactory.UnsupportedType unsupportedType) {
       unsupportedType.printStackTrace();
     }

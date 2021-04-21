@@ -29,6 +29,7 @@ All CloudHaven requires is the most up to date version of Node and all other dep
 Database connection requires valid credentials in a .env file
 
 ## Relevant Links
+Feedback is welcome through our Google Form: https://forms.gle/h97ApKGZbs3uEo9R9
 
 ### Deployment Location
 https://cloud-haven.herokuapp.com
@@ -131,3 +132,11 @@ There is also a second supported operation of sending a GET request to `http://1
 1. Navigate to the pythonVendor directory using: `cd BiggestPig/apps/pythonVendor` 
 2. Run the app with: `python dummy.py`
 
+### Features
+1. 3 seperate vendor apps with different use cases and programed style. 
+2. Dynamic updates using data from posgres database 
+3. Basic validation on user fields ensuring correcty looking data entered 
+4. Vender App Creation using Approved API 
+5. Profile,Table and Forms all supported 
+6. command line startup using Yarn to manually test vender apps 
+7. expectant form behavior for populated fields such as passwords being * out in webpage. 
