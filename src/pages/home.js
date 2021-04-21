@@ -19,42 +19,6 @@ export default function Home() {
       <Grid container spacing={5}>
         <Grid item>
           <Paper className={classes.paper}>
-            <Card className={classes.card} component={Link} to="/demo">
-              <CardActionArea>
-                <CardMedia
-                  className={classes.media}
-                  image="/static/images/cards/demo2.gif"
-                  title="Demo 1 Logo"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    Demo 1
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Paper>
-        </Grid>
-        <Grid item>
-          <Paper className={classes.paper}>
-            <Card className={classes.card} component={Link} to="/demo2">
-              <CardActionArea>
-                <CardMedia
-                  className={classes.media}
-                  image="/static/images/cards/demo2.gif"
-                  title="Demo 2 Logo"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    Demo 2
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Paper>
-        </Grid>
-        <Grid item>
-          <Paper className={classes.paper}>
             <Card className={classes.card}
               component={Link}
               to={{

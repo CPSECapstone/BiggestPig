@@ -8,11 +8,9 @@ import PrivateComponent from './components/privateComponent.js';
 import {AuthContext} from './contexts/authorize.js';
 
 import Home from './pages/home';
-import Demo2 from './pages/demo2';
 import Login from './pages/login';
 import Vendor from './pages/vendor';
 import TableDemo from './pages/tabledemo';
-import FormPropsTextFields from './pages/demo';
 
 // get authorization and user state
 export default function App() {
@@ -37,10 +35,8 @@ export default function App() {
         <Provider>
           <PrivateComponent component={Header} />
           <Switch>
-            <PrivateRoute path="/demo" component={FormPropsTextFields} />
             <PrivateRoute exact path="/" component={Home} />
             <PrivateRoute path="/home" component={Home} />
-            <PrivateRoute path="/demo2" component={Demo2} />
             <PrivateRoute path="/vendor" component={Vendor} />
             <PrivateRoute path="/table" component={TableDemo} />
             <Route path="/login" component={Login} />
