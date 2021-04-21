@@ -74,6 +74,7 @@ This app relies on libraries with the following Maven coordinates.
 - `com.github.javafaker:javafaker:1.02`
 - `javax.json:javax.json-api:1.1.4`
 - `org.glassfish:javax.json:1.0.2`
+- `org.junit.jupiter:junit-jupiter:5.4.2`
 
 ## Sample Python Vendor App
 In `apps/pythonVendor` there is an example vendor app. It runs on `http://127.0.0.1:5001/` and by default it broadcasts to the local network. Sending a get request to `http://127.0.0.1:5000/`will result in receiving the following default response: 

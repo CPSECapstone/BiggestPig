@@ -1,15 +1,15 @@
 public class ComponentFactory {
 
   public enum Type {
-    TEXT, TEXT_INPUT_FIELD
+    TEXT, TEXT_INPUT, UNSUPPORTED
   }
 
   public static Component makeComponent(Type type) throws UnsupportedType {
     switch (type) {
       case TEXT:  return new TextComponent();
-      case TEXT_INPUT_FIELD: return new TextInputComponent();
+      case TEXT_INPUT: return new TextInputComponent();
     }
-    throw new UnsupportedType("Not a supported type");
+    throw new UnsupportedType(String.format("'%s' is not a supported type", type.name()));
   }
 
   static class UnsupportedType extends Exception {

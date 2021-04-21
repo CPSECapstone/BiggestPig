@@ -1,5 +1,5 @@
 import javax.json.JsonObjectBuilder;
 
 public interface Component {
-  public JsonObjectBuilder build();
+  public JsonObjectBuilder create();
 }
