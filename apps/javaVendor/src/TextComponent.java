@@ -34,7 +34,7 @@ public class TextComponent implements Component {
   }
 
   @Override
-  public JsonObjectBuilder build() {
+  public JsonObjectBuilder create() {
     return this.component;
   }
 }

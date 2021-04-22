@@ -7,7 +7,7 @@ public class TextInputComponent implements Component {
 
   public static TextInputComponent getComponent() {
     try {
-      return (TextInputComponent) ComponentFactory.makeComponent(ComponentFactory.Type.TEXT_INPUT_FIELD);
+      return (TextInputComponent) ComponentFactory.makeComponent(ComponentFactory.Type.TEXT_INPUT);
     } catch (ComponentFactory.UnsupportedType unsupportedType) {
       unsupportedType.printStackTrace();
     }
@@ -39,7 +39,7 @@ public class TextInputComponent implements Component {
   }
 
   @Override
-  public JsonObjectBuilder build() {
+  public JsonObjectBuilder create() {
     return component;
   }
 }

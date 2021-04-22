@@ -1,6 +1,5 @@
-import javax.json.Json;
-import javax.json.JsonArrayBuilder;
-import javax.json.JsonObjectBuilder;
+import javax.json.*;
+import java.util.Objects;
 
 public class Table extends GeneratedPage implements JsonData {
 
@@ -14,9 +13,9 @@ public class Table extends GeneratedPage implements JsonData {
     int numRows = faker.number().numberBetween(5, 15);
     for (int i = 0; i < numRows; i++) {
       rows.add(Json.createArrayBuilder()
-        .add(TextComponent.getComponent().addContent(faker.internet().uuid()).build())
-        .add(TextComponent.getComponent().addContent(faker.medical().symptoms()).build())
-        .add(TextComponent.getComponent().addContent(faker.medical().medicineName()).build())
+        .add(TextComponent.getComponent().addContent(randomUUID()).create())
+        .add(TextComponent.getComponent().addContent(faker.medical().symptoms()).create())
+        .add(TextComponent.getComponent().addContent(faker.medical().medicineName()).create())
       );
     }
   }
@@ -30,5 +29,13 @@ public class Table extends GeneratedPage implements JsonData {
         .add("Symptoms")
         .add("Medicine Perscribed"))
       .add("rows", rows);
+  }
+
+  @Override
+  public boolean equals(Object o) { //only compares the size of the rows, the better comparison is the result of toSendableJson
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Table table = (Table) o;
+    return display == table.display;
   }
 }

@@ -1,6 +1,7 @@
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObjectBuilder;
+import java.util.Objects;
 
 public class Form extends GeneratedPage implements JsonData  {
   private final JsonArrayBuilder fields;
@@ -23,7 +24,7 @@ public class Form extends GeneratedPage implements JsonData  {
       if (faker.bool().bool()) {
         field.addMatch( "[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+");
       }
-      fields.add(field.build());
+      fields.add(field.create());
     }
   }
 
@@ -34,4 +35,13 @@ public class Form extends GeneratedPage implements JsonData  {
       .add("title", title)
       .add("fields", fields);
   }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Form form = (Form) o;
+    return fields.build().equals(form.fields.build()) && title.equals(form.title);
+  }
+
 }

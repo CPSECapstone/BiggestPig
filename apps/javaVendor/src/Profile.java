@@ -1,9 +1,7 @@
 import javax.json.Json;
-import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
 import java.util.Date;
 import java.text.SimpleDateFormat;
-import java.util.UUID;
 
 public class Profile extends GeneratedPage implements JsonData {
   private final String fName;
@@ -30,25 +28,33 @@ public class Profile extends GeneratedPage implements JsonData {
     this.state = faker.address().state();
     this.zip = faker.address().zipCode();
     this.email = faker.internet().emailAddress();
-    this.identifier = faker.internet().uuid();
-    this.ssnToken = faker.internet().uuid();
+    this.identifier = randomUUID();
+    this.ssnToken = randomUUID();
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Profile profile = (Profile) o;
+    return fName.equals(profile.fName) && lName.equals(profile.lName) && birthday.equals(profile.birthday) && cell.equals(profile.cell) && address.equals(profile.address) && city.equals(profile.city) && state.equals(profile.state) && zip.equals(profile.zip) && email.equals(profile.email) && identifier.equals(profile.identifier) && ssnToken.equals(profile.ssnToken);
   }
 
   public JsonObjectBuilder toSendableJson() {
     return Json.createObjectBuilder()
       .add("components", Json.createArrayBuilder()
-        .add(TextComponent.getComponent().addContent("Profile Page").build())
-        .add(TextComponent.getComponent().addLabel("first-name").addContent(fName).build())
-        .add(TextComponent.getComponent().addLabel("last-name").addContent(lName).build())
-        .add(TextComponent.getComponent().addLabel("birthday").addContent(formatter.format(birthday)).build())
-        .add(TextComponent.getComponent().addLabel("phone-number").addContent(cell).build())
-        .add(TextComponent.getComponent().addLabel("street-address").addContent(address).build())
-        .add(TextComponent.getComponent().addLabel("city").addContent(city).build())
-        .add(TextComponent.getComponent().addLabel("state").addContent(state).build())
-        .add(TextComponent.getComponent().addLabel("zipcode").addContent(zip).build())
-        .add(TextComponent.getComponent().addLabel("email").addContent(email).build())
-        .add(TextComponent.getComponent().addLabel("identifier").addContent(identifier).build())
-        .add(TextComponent.getComponent().addLabel("ssn").addContent(ssnToken).build())
+        .add(TextComponent.getComponent().addContent("Profile Page").create())
+        .add(TextComponent.getComponent().addLabel("first-name").addContent(fName).create())
+        .add(TextComponent.getComponent().addLabel("last-name").addContent(lName).create())
+        .add(TextComponent.getComponent().addLabel("birthday").addContent(formatter.format(birthday)).create())
+        .add(TextComponent.getComponent().addLabel("phone-number").addContent(cell).create())
+        .add(TextComponent.getComponent().addLabel("street-address").addContent(address).create())
+        .add(TextComponent.getComponent().addLabel("city").addContent(city).create())
+        .add(TextComponent.getComponent().addLabel("state").addContent(state).create())
+        .add(TextComponent.getComponent().addLabel("zipcode").addContent(zip).create())
+        .add(TextComponent.getComponent().addLabel("email").addContent(email).create())
+        .add(TextComponent.getComponent().addLabel("identifier").addContent(identifier).create())
+        .add(TextComponent.getComponent().addLabel("ssn").addContent(ssnToken).create())
       );
   }
 }
