@@ -1,6 +1,7 @@
 /* eslint-disable  */
 import express from 'express';
-import { json, urlencoded } from 'body-parser';
+import pkg from 'body-parser';
+const { json, urlencoded } = pkg;
 import axios from 'axios';
 
 import db from './database.js';
@@ -10,7 +11,7 @@ const port = process.env.PORT || 5000;
 
 // DO NOT DO THIS IN PRODUCTION, GET FREE CERT
 //utilized cert from core services team
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 app.use(json());
 app.use(urlencoded({ extended: true }));
