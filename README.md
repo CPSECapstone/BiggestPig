@@ -1,10 +1,10 @@
 #  CloudHaven
 ## TEAM Biggest Pig
-- Sarah Samora
-- Grant Matejka
 - Evan Rozhon
+- Grant Matejka
 - Justin Evans
 - Kaitlin Clever
+- Sarah Samora
 
 ## Focus
 
@@ -145,3 +145,6 @@ There is also a second supported operation of sending a GET request to `http://1
 5. Profile,Table and Forms all supported 
 6. command line startup using Yarn to manually test vender apps 
 7. expectant form behavior for populated fields such as passwords being * out in webpage. 
+
+TODO: make two main demo applications based on in class figma, with the java app based on clinic spec
+Switch away from yarn and get rid of heroku development instance
