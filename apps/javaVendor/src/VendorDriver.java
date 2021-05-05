@@ -10,7 +10,6 @@ import java.net.InetSocketAddress;
 import java.util.UUID;
 
 public class VendorDriver {
-
   private static UUID vendorId = UUID.randomUUID();
   private static UUID vendorAuth = UUID.randomUUID();
 
