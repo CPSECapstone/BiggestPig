@@ -7,10 +7,10 @@ public class Form extends GeneratedPage implements JsonData  {
   private final JsonArrayBuilder fields;
   private final String title;
 
-  public Form (String token) {
-    super(token);
+  public Form (String token, Boolean random) {
+    super(token, random);
     int numFields = faker.number().numberBetween(4, 9);
-    title = faker.medical().hospitalName();
+    title = provider.getHospitalName()
     this.fields = Json.createArrayBuilder();
     for (int i = 0; i < numFields; i++) {
       TextInputComponent field = TextInputComponent.getComponent();

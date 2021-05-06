@@ -8,6 +8,7 @@ public class ComponentFactory {
     switch (type) {
       case TEXT:  return new TextComponent();
       case TEXT_INPUT: return new TextInputComponent();
+      case UNSUPPORTED: throw new UnsupportedType("Unsupported Component Type");
     }
     throw new UnsupportedType(String.format("'%s' is not a supported type", type.name()));
   }
