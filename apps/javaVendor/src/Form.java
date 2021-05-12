@@ -31,7 +31,7 @@ public class Form extends GeneratedPage implements JsonData{
   public Form (String token, Boolean random) {
     super(token, random);
     int numFields = faker.number().numberBetween(4, 9);
-    title = provider.getHospitalName()
+    title = provider.getHospitalName();
     this.fields = Json.createArrayBuilder();
     for (int i = 0; i < numFields; i++) {
       TextInputComponent field = TextInputComponent.getComponent();
@@ -51,7 +51,7 @@ public class Form extends GeneratedPage implements JsonData{
 
   @Override
   protected JsonObjectBuilder seed(String token) {
-    Form f = new Form(token);
+    Form f = new Form(token, true);
     return f.toSendableJson();
   }
 
