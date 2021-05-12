@@ -1,10 +1,17 @@
 import com.github.javafaker.Faker;
 
+import javax.json.JsonObjectBuilder;
+import javax.json.JsonPatchBuilder;
 import java.util.Random;
 import java.util.UUID;
 
 public abstract class GeneratedPage {
   protected final Faker faker;
+
+  public GeneratedPage() {
+    Random seed = new Random(0);
+    this.faker = new Faker(seed);
+  }
 
   public GeneratedPage(String token) {
     long seedStarter = token.hashCode();
@@ -19,5 +26,18 @@ public abstract class GeneratedPage {
     long d = faker.number().numberBetween(0, 65536);
     long e = faker.number().numberBetween(0, Long.parseLong("281474976710656"));
     return String.format("%s-%s-%s-%s-%s", Long.toHexString(a), Long.toHexString(b), Long.toHexString(c), Long.toHexString(d), Long.toHexString(e));
+  }
+
+  protected abstract JsonObjectBuilder seed(String token);
+
+  public static <T extends GeneratedPage> JsonObjectBuilder generate(String token, Class<T> page) {
+    try {
+      return page.newInstance().seed(token);
+    } catch (InstantiationException e) {
+      e.printStackTrace();
+    } catch (IllegalAccessException e) {
+      e.printStackTrace();
+    }
+    return null;
   }
 }

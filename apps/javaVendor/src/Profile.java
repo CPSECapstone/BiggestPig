@@ -3,7 +3,7 @@ import javax.json.JsonObjectBuilder;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-public class Profile extends GeneratedPage implements JsonData {
+public class Profile extends GeneratedPage implements JsonData{
   private final String fName;
   private final String lName;
   private final Date birthday;
@@ -16,6 +16,21 @@ public class Profile extends GeneratedPage implements JsonData {
   private final String identifier;
   private final String ssnToken;
   private final SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+
+  public Profile() {
+    super();
+    this.fName = faker.name().firstName();
+    this.lName = faker.name().lastName();
+    this.birthday = faker.date().birthday();
+    this.cell = faker.phoneNumber().cellPhone();
+    this.address = faker.address().streetAddress(faker.bool().bool());
+    this.city = faker.address().city();
+    this.state = faker.address().state();
+    this.zip = faker.address().zipCode();
+    this.email = faker.internet().emailAddress();
+    this.identifier = randomUUID();
+    this.ssnToken = randomUUID();
+  }
 
   public Profile(String token) {
     super(token);
@@ -40,6 +55,13 @@ public class Profile extends GeneratedPage implements JsonData {
     return fName.equals(profile.fName) && lName.equals(profile.lName) && birthday.equals(profile.birthday) && cell.equals(profile.cell) && address.equals(profile.address) && city.equals(profile.city) && state.equals(profile.state) && zip.equals(profile.zip) && email.equals(profile.email) && identifier.equals(profile.identifier) && ssnToken.equals(profile.ssnToken);
   }
 
+  @Override
+  protected JsonObjectBuilder seed(String token) {
+    Profile p = new Profile(token);
+    return p.toSendableJson();
+  }
+
+  @Override
   public JsonObjectBuilder toSendableJson() {
     return Json.createObjectBuilder()
       .add("components", Json.createArrayBuilder()

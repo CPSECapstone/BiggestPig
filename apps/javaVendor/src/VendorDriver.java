@@ -25,50 +25,30 @@ public class VendorDriver {
     exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
     String[] pathComponents = exchange.getRequestURI().getPath().split("/");
     if (pathComponents.length > 2 && pathComponents[1].equals("profile")) {
-      handleProfileRequest(exchange, pathComponents[2]);
+      handleValidRequest(exchange, pathComponents[2], Profile.class);
     } else if (pathComponents.length > 2 && pathComponents[1].equals("form")) {
-      handleFormRequest(exchange, pathComponents[2]);
+      handleValidRequest(exchange, pathComponents[2], Form.class);
     } else if (pathComponents.length > 2 && pathComponents[1].equals("table")) {
-      handleTableRequest(exchange, pathComponents[2]);
+      handleValidRequest(exchange, pathComponents[2], Table.class);
     } else {
-      String response = "Welcome to the default Java Vendor Application!!!\nThe supported requests are: \"/profile/<user>\", \"/table/<identifier>\", \"/form/<identifier>\"";
-      exchange.sendResponseHeaders(404, response.getBytes().length); //response code and length
-      OutputStream os = exchange.getResponseBody();
-      os.write(response.getBytes());
-      os.close();
+      errorResponse(exchange, 404);
     }
-
-
   }
 
-  private static void handleProfileRequest(HttpExchange exchange, String token) throws IOException {
+  private static <T extends GeneratedPage> void handleValidRequest(HttpExchange exchange, String token, Class<T> tClass) throws IOException {
     Headers headers = exchange.getResponseHeaders();
     headers.add("content-type", "application/json");
-    Profile profile = new Profile(token);
-    String response = attachVendorAuth(profile.toSendableJson()).toString();
+    JsonObjectBuilder responseObject = GeneratedPage.generate(token, tClass);
+    String response = attachVendorAuth(responseObject).toString();
     exchange.sendResponseHeaders(200, response.getBytes().length); //response code and length
     OutputStream os = exchange.getResponseBody();
     os.write(response.getBytes());
     os.close();
   }
 
-  private static void handleTableRequest(HttpExchange exchange, String token) throws IOException {
-    Headers headers = exchange.getResponseHeaders();
-    headers.add("content-type", "application/json");
-    Table table = new Table(token);
-    String response = attachVendorAuth(table.toSendableJson()).toString();
-    exchange.sendResponseHeaders(200, response.getBytes().length); //response code and length
-    OutputStream os = exchange.getResponseBody();
-    os.write(response.getBytes());
-    os.close();
-  }
-
-  private static void handleFormRequest(HttpExchange exchange, String token) throws IOException {
-    Headers headers = exchange.getResponseHeaders();
-    headers.add("content-type", "application/json");
-    Form form = new Form(token);
-    String response = attachVendorAuth(form.toSendableJson()).toString();
-    exchange.sendResponseHeaders(200, response.getBytes().length); //response code and length
+  private static void errorResponse(HttpExchange exchange, int code) throws IOException {
+    String response = "Welcome to the default Java Vendor Application!!!\nThe supported requests are: \"/profile/<user>\", \"/table/<identifier>\", \"/form/<identifier>\"";
+    exchange.sendResponseHeaders(404, response.getBytes().length); //response code and length
     OutputStream os = exchange.getResponseBody();
     os.write(response.getBytes());
     os.close();

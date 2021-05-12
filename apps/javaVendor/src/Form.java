@@ -1,13 +1,33 @@
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObjectBuilder;
-import java.util.Objects;
 
-public class Form extends GeneratedPage implements JsonData  {
+public class Form extends GeneratedPage implements JsonData{
   private final JsonArrayBuilder fields;
   private final String title;
 
-  public Form (String token) {
+  public Form() {
+    super();
+    int numFields = faker.number().numberBetween(4, 9);
+    title = faker.medical().hospitalName();
+    this.fields = Json.createArrayBuilder();
+    for (int i = 0; i < numFields; i++) {
+      TextInputComponent field = TextInputComponent.getComponent();
+      field.addLabel(faker.internet().slug());
+      if (faker.bool().bool()) {
+        field.isSensitive();
+      }
+      if (faker.bool().bool()) {
+        field.isRequired();
+      }
+      if (faker.bool().bool()) {
+        field.addMatch( "[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+");
+      }
+      fields.add(field.create());
+    }
+  }
+
+  public Form(String token) {
     super(token);
     int numFields = faker.number().numberBetween(4, 9);
     title = faker.medical().hospitalName();
@@ -26,6 +46,12 @@ public class Form extends GeneratedPage implements JsonData  {
       }
       fields.add(field.create());
     }
+  }
+
+  @Override
+  protected JsonObjectBuilder seed(String token) {
+    Form f = new Form(token);
+    return f.toSendableJson();
   }
 
   @Override
