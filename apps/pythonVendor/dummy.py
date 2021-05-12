@@ -56,7 +56,9 @@ def hello_world():
 
 
 def interceptmessage(message):
-   if message == {"VendorAuth":"6fa691d2c07bea6ae78b7022c80e9d20","Vendorid":"SnakeSnakeImASnake","components":[{"Title":"78b83774d3a907fbea42783d58a95204","columns":[{"children":[{"component":"textFormField","label":"Full Name","required":"true","validation":"[a-fA-F0-9]"},{"component":"textFormField","label":"Address","required":"true","validation":"[a-fA-F0-9]"}]},{"children":[{"component":"textFormField","label":"Phone Number","required":"true","validation":"[a-fA-F0-9]"},{"action":"Submit","component":"button","target":"78b83774d3a907fbea42783d58a95204"}]}],"component":"form"}]}:
+   if message == {"VendorAuth":"92jdncTest23904Passed329jc","Vendorid":"OOHLookATestAndItPassed","components":[{"Title":"PassingTest","columns":[{"children":[{"component":"textFormField","label":"Full Name","required":"true","validation":"[a-fA-F0-9]"},
+   {"component":"textFormField","label":"Address","required":"true","validation":"[a-fA-F0-9]"}]},{"children":[{"component":"textFormField","label":"Phone Number","required":"true","validation":"[a-fA-F0-9]"},
+   {"action":"Submit","component":"button"}]}],"component":"form"}]}:
       logging.info('just testing and pasted')
       return message
    else: 
@@ -95,16 +97,15 @@ def test_app():
 
    c1Child1['component'] = "button"
    c1Child1['action'] = "Submit"
-   c1Child1['target'] = "78b83774d3a907fbea42783d58a95204"
 
    column1["children"] = [c1Child0, c1Child1]
 
-   form["Title"] = "78b83774d3a907fbea42783d58a95204"
+   form["Title"] = "PassingTest"
    form["component"] = "form"
    form["columns"] = [column0, column1]
    message= jsonify(
-                  Vendorid = "SnakeSnakeImASnake",
-                  VendorAuth="6fa691d2c07bea6ae78b7022c80e9d20",
+                  Vendorid = "OOHLookATestAndItPassed",
+                  VendorAuth="92jdncTest23904Passed329jc",
                   components=[
                      form
                   ])
