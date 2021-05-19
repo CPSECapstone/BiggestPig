@@ -112,3 +112,7 @@ dist
 package-lock.json
 
 /.node_modules/
+
+# Maven target files
+/apps/javaVendor/target/
+/apps/javaVendor/out/
