@@ -133,6 +133,15 @@ There is also a second supported operation of sending a GET request to `http://1
 1. Navigate to the apps directory using: `cd BiggestPig/apps/pythonVendor` 
 2. Install the requirements using pip:  `pip install -r requirements.txt`
 
+### Setting up local posgres server for vendor apps
+1. download the PG admin software from https://www.pgadmin.org/ an exe is not included in this repo in order to keep the versions up to date.
+2. Add the PostgreSQL bin directory path to the PATH environmental variable.
+3. Open the psql command-line tool:
+   In the Windows Command Prompt, run the command:
+   psql -U userName
+   Enter your password when prompted (set up with pg admin).
+4. connect to the database structure in repo \c databasename
+
 ### Running Default Vendor App
 1. Navigate to the pythonVendor directory using: `cd BiggestPig/apps/pythonVendor` 
 2. Run the app with: `python dummy.py`
