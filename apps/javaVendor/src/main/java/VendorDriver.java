@@ -14,6 +14,7 @@ public class VendorDriver {
   private static UUID vendorAuth = UUID.randomUUID();
 
   public static void main(String[] args) throws IOException {
+    System.out.println("Starting Java Vendor App");
     HttpServer server = HttpServer.create(new InetSocketAddress(4040), 0);
     HttpContext context = server.createContext("/");
     context.setHandler(VendorDriver::handleRequest);
