@@ -14,7 +14,7 @@ public class TestComponentFactory {
     Throwable exception = assertThrows(ComponentFactory.UnsupportedType.class, () -> {
       ComponentFactory.makeComponent(ComponentFactory.Type.UNSUPPORTED);
     });
-    assertEquals("'UNSUPPORTED' is not a supported type", exception.getMessage());
+    assertEquals("Unsupported Component Type", exception.getMessage());
   }
 
   @Test
