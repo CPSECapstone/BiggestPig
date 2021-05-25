@@ -51,7 +51,7 @@ public class Form extends GeneratedPage implements JsonData{
 
   @Override
   protected JsonObjectBuilder seed(String token) {
-    Form f = new Form(token, true);
+    Form f = new Form(token);
     return f.toSendableJson();
   }
 

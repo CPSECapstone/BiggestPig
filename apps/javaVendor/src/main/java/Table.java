@@ -37,7 +37,7 @@ public class Table extends GeneratedPage implements JsonData {
 
   @Override
   protected JsonObjectBuilder seed(String token) {
-    Table t = new Table(token, true);
+    Table t = new Table(token);
     return t.toSendableJson();
   }
 

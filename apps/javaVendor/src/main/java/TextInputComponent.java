@@ -24,12 +24,12 @@ public class TextInputComponent implements Component {
   }
 
   public TextInputComponent isSensitive() {
-    this.component.add("sensitive", true);
+    this.component.add("sensitive");
     return this;
   }
 
   public TextInputComponent isRequired() {
-    this.component.add("required", true);
+    this.component.add("required");
     return this;
   }
 
