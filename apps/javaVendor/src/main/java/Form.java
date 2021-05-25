@@ -2,7 +2,7 @@ import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObjectBuilder;
 
-public class Form extends GeneratedPage implements JsonData{
+public class Form extends GeneratedPage implements JsonData {
   private final JsonArrayBuilder fields;
   private final String title;
 
@@ -28,10 +28,10 @@ public class Form extends GeneratedPage implements JsonData{
   }
 
 
-  public Form (String token, Boolean random) {
-    super(token, random);
+  public Form (String token) {
+    super(token);
     int numFields = faker.number().numberBetween(4, 9);
-    title = provider.getHospitalName();
+    title = faker.medical().hospitalName();
     this.fields = Json.createArrayBuilder();
     for (int i = 0; i < numFields; i++) {
       TextInputComponent field = TextInputComponent.getComponent();

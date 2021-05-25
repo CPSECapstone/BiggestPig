@@ -20,17 +20,17 @@ public class Table extends GeneratedPage implements JsonData {
     }
   }
 
-  public Table(String token, Boolean random) {
-    super(token, random);
+  public Table(String token) {
+    super(token);
 
     this.display = faker.number().numberBetween(3, 10);
     this.rows = Json.createArrayBuilder();
     int numRows = faker.number().numberBetween(5, 15);
     for (int i = 0; i < numRows; i++) {
       rows.add(Json.createArrayBuilder()
-        .add(TextComponent.getComponent().addContent(provider.getUUID()).create())
-        .add(TextComponent.getComponent().addContent(provider.getMedicalSymptoms()).create())
-        .add(TextComponent.getComponent().addContent(provider.getMedicineName()).create())
+        .add(TextComponent.getComponent().addContent(randomUUID()).create())
+        .add(TextComponent.getComponent().addContent(faker.medical().symptoms()).create())
+        .add(TextComponent.getComponent().addContent(faker.medical().medicineName()).create())
       );
     }
   }
