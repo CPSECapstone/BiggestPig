@@ -12,3 +12,6 @@ Any errors will be printed and the project will not run if tests fail.
 
 After this command succeeds simply go to localhost:4040 and the java vendor app should be up and running
 
+
+### Debugging
+If you run into an error stating `Unknown lifecycle phase "`, run the command `cat run | sed $'s/\r//' > test` to remove carriage returns. Then try runing the new "test" script with `./test`, if that works replace the `run` script with the newly generated `test` script.
