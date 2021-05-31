@@ -54,7 +54,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.endian" value="little"/>
   </properties>
-  <testcase classname="TestComponentFactory" name="TestComponentFactory.testUnsupportedComponentType" time="0.001"/>
+  <testcase classname="TestComponentFactory" name="TestComponentFactory.testUnsupportedComponentType" time="0"/>
   <testcase classname="TestComponentFactory" name="TestComponentFactory.testMakeTextComponent" time="0"/>
-  <testcase classname="TestComponentFactory" name="TestComponentFactory.testMakeTextInputFieldComponent" time="0"/>
+  <testcase classname="TestComponentFactory" name="TestComponentFactory.testMakeTextInputFieldComponent" time="0.001"/>
 </testsuite>

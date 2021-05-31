@@ -1,5 +1,6 @@
 JsonData.class
 TextComponent.class
+ButtonComponent.class
 FakeDataProvider.class
 DataProvider.class
 ComponentFactory.class
