@@ -2,7 +2,7 @@ import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObjectBuilder;
 
-public class Form extends GeneratedPage implements JsonData{
+public class Form extends GeneratedPage implements JsonData {
   private final JsonArrayBuilder fields;
   private final String title;
 

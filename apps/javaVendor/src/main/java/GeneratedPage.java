@@ -14,6 +14,7 @@ public abstract class GeneratedPage {
   public GeneratedPage() {
     Random seed = new Random(0);
     this.faker = new Faker(seed);
+    this.provider = new FakeDataProvider(seed);
   }
 
   // If we want random data the token will be hashed
