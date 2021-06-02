@@ -1,6 +1,8 @@
-import logging, json
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import logging
+import json
+
 app = Flask(__name__)
 CORS(app)
 
@@ -40,20 +42,19 @@ def hello_world():
 
    c1Child1['component'] = "button"
    c1Child1['action'] = "Submit"
-   c1Child1['target'] = "78b83774d3a907fbea42783d58a95204"
+   c1Child1['target'] = "6fa691d2c07bea6ae786gh57l65rff"
 
    column1["children"] = [c1Child0, c1Child1]
 
-   form["Title"] = "78b83774d3a907fbea42783d58a95204"
+   form["Title"] = "6fa691d2c07bea6ae786gh57l65rff"
    form["component"] = "form"
    form["columns"] = [column0, column1]
    return jsonify(
                   Vendorid = "SnakeSnakeImASnake",
-                  VendorAuth="6fa691d2c07bea6ae78b7022c80e9d20",
+                  VendorAuth="6fa691d2c07bea6ae786gh57l65rff",
                   components=[
                      form
                   ])
-
 
 def interceptmessage(message):
    if message == {"VendorAuth":"92jdncTest23904Passed329jc","Vendorid":"OOHLookATestAndItPassed","components":[{"Title":"PassingTest","columns":[{"children":[{"component":"textFormField","label":"Full Name","required":"true","validation":"[a-fA-F0-9]"},

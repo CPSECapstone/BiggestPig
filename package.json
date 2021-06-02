@@ -20,7 +20,9 @@
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "latest",
-    "react-scripts": "^4.0.3"
+    "react-scripts": "^4.0.3",
+    "eslint-config-google": "^0.14.0"
+  
   },
   "type": "module",
   "description": "https://github.com/mui-org/material-ui/blob/master/docs/src/pages/components/text-fields/FormPropsTextFields.js",
@@ -32,8 +34,7 @@
     "client": "yarn start",
     "server": "nodemon api/server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start\"",
-    "start": "react-scripts start",
-    "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && react-scripts build"
+    "start": "react-scripts start"
   },
   "proxy": "http://localhost:5000/",
   "eslintConfig": {
