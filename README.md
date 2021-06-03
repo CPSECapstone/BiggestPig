@@ -135,13 +135,21 @@ There is also a second supported operation of sending a GET request to `http://1
 
 ### Setting up local posgres server for vendor apps
 1. download the PG admin software from https://www.pgadmin.org/ an exe is not included in this repo in order to keep the versions up to date.
-2. Add the PostgreSQL bin directory path to the PATH environmental variable.
-3. Open the psql command-line tool:
+2. When setting up Pgadmin it should prompt you to create a password. this is the password that you will use to log in and set up your own servers.
+3. Add the PostgreSQL bin directory path to the PATH environmental variable. *
+4. Open the psql command-line tool:
    In the Windows Command Prompt, run the command:
    psql -U userName
    Enter your password when prompted (set up with pg admin).
-4. connect to the database structure in repo \c databasename
+5. set up database using CREATE DATABASE with the following settings 
+   database name VendorApps
+   CREATE DATABASE VendorApps WITH ENCODING 'UTF8' LC_COLLATE='English_United States' LC_CTYPE='English_United States';
+   
+6. connect to the database structure in repo \c VendorApps 
+8. to load the structure use the following command replacing the file path with the filepath to the structure
+$ ./psql -f FILEPATH.sql -d restoredb -p 5432 -U postgres 
 
+* setting the path vairable in windows go to the system and inside advances settings link, you will see Environment vairables , add a new path environment vairable with the location of the bin discussed in step 3.
 ### Running Default Vendor App
 1. Navigate to the pythonVendor directory using: `cd BiggestPig/apps/pythonVendor` 
 2. Run the app with: `python dummy.py`
