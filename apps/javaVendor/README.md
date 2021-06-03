@@ -12,3 +12,5 @@ Any errors will be printed and the project will not run if tests fail.
 
 After this command succeeds simply go to localhost:4040 and the java vendor app should be up and running
 
+### Debugging
+If compilation fails via the run script, make sure the are no carriage ruturns in the run script and make sure you're using Java 9 or above
