@@ -42,24 +42,6 @@ export default function Home() {
             </Card>
           </Paper>
         </Grid>
-        <Grid item>
-          <Paper className={classes.paper}>
-            <Card className={classes.card} component={Link} to="/table">
-              <CardActionArea>
-                <CardMedia
-                  className={classes.media}
-                  image="/static/images/cards/demo2.gif"
-                  title="Demo 2 logo"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    Table Demo
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Paper>
-        </Grid>
       </Grid>
     </div>
   );
