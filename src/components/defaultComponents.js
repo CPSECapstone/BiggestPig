@@ -20,6 +20,7 @@ export const Header = () => {
       <Toolbar className={classes.navBar}>
         <IconButton component={ Link } to="/home" edge="start" color="inherit">
           <HomeIcon />
+          Home
         </IconButton >
         <Typography variant="h5" className={classes.title}>
                     Cloudhaven

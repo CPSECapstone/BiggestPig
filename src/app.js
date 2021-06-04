@@ -10,7 +10,6 @@ import {AuthContext} from './contexts/authorize.js';
 import Home from './pages/home';
 import Login from './pages/login';
 import Vendor from './pages/vendor';
-import TableDemo from './pages/tabledemo';
 
 // get authorization and user state
 export default function App() {
@@ -38,7 +37,6 @@ export default function App() {
             <PrivateRoute exact path="/" component={Home} />
             <PrivateRoute path="/home" component={Home} />
             <PrivateRoute path="/vendor" component={Vendor} />
-            <PrivateRoute path="/table" component={TableDemo} />
             <Route path="/login" component={Login} />
           </Switch>
         </Provider>

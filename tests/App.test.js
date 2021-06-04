@@ -4,7 +4,6 @@ import App from '../app';
 import Demo from '../src/pages/demo';
 import Demo2 from '../src/pages/demo2';
 import Vendor from '../src/pages/vendor';
-import TableDemo from '../src/pages/tabledemo';
 
 // basic see if element there
 test('renders welcome text', () => {
@@ -28,11 +27,5 @@ test('renders demo 2 field', () => {
 test("renders grant's demo field", () => {
   const { getByText } = render(<Vendor />);
   const welcomeElement = getByText(/Grant's Demo/i);
-  expect(welcomeElement).toBeTruthy();
-});
-
-test('renders table demo field', () => {
-  const { getByText } = render(<TableDemo />);
-  const welcomeElement = getByText(/Table Demo/i);
   expect(welcomeElement).toBeTruthy();
 });
