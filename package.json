@@ -22,7 +22,6 @@
     "react-router-dom": "latest",
     "react-scripts": "^4.0.3",
     "eslint-config-google": "^0.14.0"
-  
   },
   "type": "module",
   "description": "https://github.com/mui-org/material-ui/blob/master/docs/src/pages/components/text-fields/FormPropsTextFields.js",
